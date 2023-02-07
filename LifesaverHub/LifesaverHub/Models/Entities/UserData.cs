@@ -8,7 +8,7 @@ public class UserData
     [AllowNull]
     public string CardHolder { get; set; }
     [AllowNull]
-    public int CardNumber { get; set; }
+    public string CardNumber { get; set; }
     [AllowNull]
     public int ExpiryMonth { get; set; }
     [AllowNull]
@@ -21,8 +21,6 @@ public class UserData
     public string AddressLine2 { get; set; }
     [AllowNull]
     public string PhoneNumber { get; set; }
-    [AllowNull]
-    public string Email { get; set; }
     [AllowNull]
     public string City { get; set; }
     [AllowNull]

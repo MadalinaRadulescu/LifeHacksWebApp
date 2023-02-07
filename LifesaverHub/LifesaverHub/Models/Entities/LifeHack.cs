@@ -11,4 +11,6 @@ public class LifeHack
     public string PhotoName { get; set; } = "";
     public string Link { get; set; } = "";
     public long VoteCount { get; set; } = 0;
+    public long userId { get; set; }
+    public List<long> categoriesId { get; set; } = new();
 }
