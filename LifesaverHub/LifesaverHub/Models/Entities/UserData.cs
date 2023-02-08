@@ -1,9 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LifesaverHub.Models.Entities;
 
 public class UserData
 {
+    public int Id { get; set; }
     public long UserId { get; set; }
     [AllowNull]
     public string CardHolder { get; set; }
@@ -18,8 +20,6 @@ public class UserData
     [AllowNull]
     public string AddressLine1 { get; set; }
     [AllowNull]
-    public string AddressLine2 { get; set; }
-    [AllowNull]
     public string PhoneNumber { get; set; }
     [AllowNull]
     public string City { get; set; }
@@ -28,4 +28,5 @@ public class UserData
     [AllowNull]
     public string ZipCode { get; set; }
     public long Points { get; set; } = 0;
+    public DateTimeKind RegisterTime { get; set;  } = DateTimeKind.Utc;
 }

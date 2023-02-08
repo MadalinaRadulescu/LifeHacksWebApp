@@ -4,7 +4,6 @@ namespace LifesaverHub.Models.Entities;
 
 public class LifeHack
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
@@ -13,4 +12,5 @@ public class LifeHack
     public long VoteCount { get; set; } = 0;
     public long userId { get; set; }
     public List<long> categoriesId { get; set; } = new();
+    public DateTimeKind PublishedAt { get; set;  } = DateTimeKind.Utc;
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using LifesaverHub.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LifesaverHub.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230208084602_FirstData")]
+    partial class FirstData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,7 +98,7 @@ namespace LifesaverHub.Migrations
                         {
                             Id = 1L,
                             LifeHackId = 4L,
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9744),
+                            PublishedAt = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4397),
                             Text = "That actually save my cookies!",
                             UserId = 0L,
                             VoteCount = 0L
@@ -104,7 +107,7 @@ namespace LifesaverHub.Migrations
                         {
                             Id = 2L,
                             LifeHackId = 3L,
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9751),
+                            PublishedAt = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4403),
                             Text = "Why should i want to do that???",
                             UserId = 0L,
                             VoteCount = 5L
@@ -113,7 +116,7 @@ namespace LifesaverHub.Migrations
                         {
                             Id = 3L,
                             LifeHackId = 0L,
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9753),
+                            PublishedAt = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4405),
                             Text = "Boring",
                             UserId = 1L,
                             VoteCount = -5L
@@ -168,7 +171,7 @@ namespace LifesaverHub.Migrations
                             Description = "To easily remove the steam from the strawberries we recommend to use a straw as in image from bellow.",
                             Link = "",
                             PhotoName = "strawberries and the straw",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9735),
+                            PublishedAt = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4320),
                             Title = "How to remove the steam from the strawberries?",
                             VoteCount = 27L,
                             categoriesId = new List<long> { 0L },
@@ -180,7 +183,7 @@ namespace LifesaverHub.Migrations
                             Description = "The best way to kip chips fresh after opening is by using any clipper, like the ones from hanger.",
                             Link = "",
                             PhotoName = "chips and hanger",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9739),
+                            PublishedAt = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4388),
                             Title = "How to properly close a bag of chips?",
                             VoteCount = 0L,
                             categoriesId = new List<long> { 0L },
@@ -192,7 +195,7 @@ namespace LifesaverHub.Migrations
                             Description = "We’re sure you’re stocking up on sweet smelling candles to make your home extra cozy for the colder months. But, if your candles are burning too low to reach the wick, there’s no reason to go without your favorite scent. Instead of burning your fingers, light a piece of uncooked spaghetti. It’ll reach into those deep candles and burn long enough to light the candles on grandpa’s birthday cake!",
                             Link = "",
                             PhotoName = "",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9740),
+                            PublishedAt = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4390),
                             Title = "Pasta Lighter",
                             VoteCount = 12L,
                             categoriesId = new List<long> { 1L },
@@ -204,7 +207,7 @@ namespace LifesaverHub.Migrations
                             Description = "Fastest way to do that is simply putting a hair elastic on a vacuum and slowly suck the hair in.",
                             Link = "https://www.boredpanda.com/blog/wp-content/org_uploads/2013/01/life-hacks-36.gif",
                             PhotoName = "",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9741),
+                            PublishedAt = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4392),
                             Title = "Fastest way to catch the hair in the tail",
                             VoteCount = -43L,
                             categoriesId = new List<long> { 3L },
@@ -216,7 +219,7 @@ namespace LifesaverHub.Migrations
                             Description = "Sprinkle dried rice under your cupcake cases before baking. The rice absorbs any grease throughout baking meaning you get lovely dry cupcake bases and no greasy patches on your cases!",
                             Link = "",
                             PhotoName = "cupcakes and rice",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9742),
+                            PublishedAt = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4394),
                             Title = "Useful tip for baking cupcakes",
                             VoteCount = 25L,
                             categoriesId = new List<long> { 0L },
@@ -297,7 +300,7 @@ namespace LifesaverHub.Migrations
                             ExpiryYear = 25,
                             PhoneNumber = "5555555555",
                             Points = 0L,
-                            RegisterTime = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9816),
+                            RegisterTime = new DateTime(2023, 2, 8, 10, 46, 2, 769, DateTimeKind.Local).AddTicks(4473),
                             UserId = 0L,
                             ZipCode = "1234"
                         });
