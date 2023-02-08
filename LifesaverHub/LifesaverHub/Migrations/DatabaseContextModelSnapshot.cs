@@ -25,15 +25,20 @@ namespace LifesaverHub.Migrations
 
             modelBuilder.Entity("LifesaverHub.Models.Entities.Category", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime>("RegistredTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
 
                     b.HasKey("Id");
 
@@ -42,48 +47,54 @@ namespace LifesaverHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1L,
-                            Name = "Food"
+                            Id = 1,
+                            Name = "Food",
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 2L,
-                            Name = "Home"
+                            Id = 2,
+                            Name = "Home",
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 3L,
-                            Name = "Tech"
+                            Id = 3,
+                            Name = "Tech",
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = 4L,
-                            Name = "Funny"
+                            Id = 4,
+                            Name = "Funny",
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
             modelBuilder.Entity("LifesaverHub.Models.Entities.Comment", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<long>("LifeHackId")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("PublishedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<long>("Points")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("RegistredTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("VoteCount")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -93,30 +104,30 @@ namespace LifesaverHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1L,
+                            Id = 1,
                             LifeHackId = 4L,
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9744),
+                            Points = 0L,
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "That actually save my cookies!",
-                            UserId = 0L,
-                            VoteCount = 0L
+                            UserId = 0L
                         },
                         new
                         {
-                            Id = 2L,
+                            Id = 2,
                             LifeHackId = 3L,
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9751),
+                            Points = 5L,
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "Why should i want to do that???",
-                            UserId = 0L,
-                            VoteCount = 5L
+                            UserId = 0L
                         },
                         new
                         {
-                            Id = 3L,
+                            Id = 3,
                             LifeHackId = 0L,
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9753),
+                            Points = -5L,
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "Boring",
-                            UserId = 1L,
-                            VoteCount = -5L
+                            UserId = 1L
                         });
                 });
 
@@ -140,22 +151,24 @@ namespace LifesaverHub.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("PublishedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<long>("Points")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("RegistredTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long>("VoteCount")
+                    b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
                     b.Property<List<long>>("categoriesId")
                         .IsRequired()
                         .HasColumnType("bigint[]");
-
-                    b.Property<long>("userId")
-                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -168,11 +181,11 @@ namespace LifesaverHub.Migrations
                             Description = "To easily remove the steam from the strawberries we recommend to use a straw as in image from bellow.",
                             Link = "",
                             PhotoName = "strawberries and the straw",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9735),
+                            Points = 27L,
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "How to remove the steam from the strawberries?",
-                            VoteCount = 27L,
-                            categoriesId = new List<long> { 0L },
-                            userId = 0L
+                            UserId = 0L,
+                            categoriesId = new List<long> { 0L }
                         },
                         new
                         {
@@ -180,11 +193,11 @@ namespace LifesaverHub.Migrations
                             Description = "The best way to kip chips fresh after opening is by using any clipper, like the ones from hanger.",
                             Link = "",
                             PhotoName = "chips and hanger",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9739),
+                            Points = 0L,
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "How to properly close a bag of chips?",
-                            VoteCount = 0L,
-                            categoriesId = new List<long> { 0L },
-                            userId = 0L
+                            UserId = 0L,
+                            categoriesId = new List<long> { 0L }
                         },
                         new
                         {
@@ -192,11 +205,11 @@ namespace LifesaverHub.Migrations
                             Description = "We’re sure you’re stocking up on sweet smelling candles to make your home extra cozy for the colder months. But, if your candles are burning too low to reach the wick, there’s no reason to go without your favorite scent. Instead of burning your fingers, light a piece of uncooked spaghetti. It’ll reach into those deep candles and burn long enough to light the candles on grandpa’s birthday cake!",
                             Link = "",
                             PhotoName = "",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9740),
+                            Points = 12L,
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Pasta Lighter",
-                            VoteCount = 12L,
-                            categoriesId = new List<long> { 1L },
-                            userId = 0L
+                            UserId = 0L,
+                            categoriesId = new List<long> { 1L }
                         },
                         new
                         {
@@ -204,11 +217,11 @@ namespace LifesaverHub.Migrations
                             Description = "Fastest way to do that is simply putting a hair elastic on a vacuum and slowly suck the hair in.",
                             Link = "https://www.boredpanda.com/blog/wp-content/org_uploads/2013/01/life-hacks-36.gif",
                             PhotoName = "",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9741),
+                            Points = -43L,
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Fastest way to catch the hair in the tail",
-                            VoteCount = -43L,
-                            categoriesId = new List<long> { 3L },
-                            userId = 1L
+                            UserId = 1L,
+                            categoriesId = new List<long> { 3L }
                         },
                         new
                         {
@@ -216,11 +229,11 @@ namespace LifesaverHub.Migrations
                             Description = "Sprinkle dried rice under your cupcake cases before baking. The rice absorbs any grease throughout baking meaning you get lovely dry cupcake bases and no greasy patches on your cases!",
                             Link = "",
                             PhotoName = "cupcakes and rice",
-                            PublishedAt = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9742),
+                            Points = 25L,
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Useful tip for baking cupcakes",
-                            VoteCount = 25L,
-                            categoriesId = new List<long> { 0L },
-                            userId = 1L
+                            UserId = 1L,
+                            categoriesId = new List<long> { 0L }
                         });
                 });
 
@@ -233,6 +246,10 @@ namespace LifesaverHub.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AddressLine1")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("AddressLine2")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -269,8 +286,10 @@ namespace LifesaverHub.Migrations
                     b.Property<long>("Points")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("RegisterTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("RegistredTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("NOW()");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -288,6 +307,7 @@ namespace LifesaverHub.Migrations
                         {
                             Id = 1,
                             AddressLine1 = "123 Maple Street",
+                            AddressLine2 = "",
                             CardHolder = "john doe",
                             CardNumber = "1234567890123456",
                             City = "Columbus",
@@ -297,7 +317,7 @@ namespace LifesaverHub.Migrations
                             ExpiryYear = 25,
                             PhoneNumber = "5555555555",
                             Points = 0L,
-                            RegisterTime = new DateTime(2023, 2, 8, 8, 48, 30, 561, DateTimeKind.Utc).AddTicks(9816),
+                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = 0L,
                             ZipCode = "1234"
                         });
