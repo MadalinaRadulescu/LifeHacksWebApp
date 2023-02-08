@@ -32,10 +32,4 @@ public class LogController : Controller
 
         return result.Succeeded;
     }
-    //
-    // [HttpGet("logout")]
-    // public async void Logout()
-    // {
-    //     _userManager.LogOutAsync().Wait();
-    // }
 }

@@ -17,7 +17,6 @@ public class UserData : DetaliedBaseEntity
     public string Cvv { get; set; }
     [AllowNull]
     public string AddressLine1 { get; set; }
-
     [AllowNull] 
     public string AddressLine2 { get; set; } = "";
     [AllowNull]

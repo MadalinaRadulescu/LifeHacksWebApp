@@ -8,7 +8,7 @@ public class DatabaseContext : DbContext
     public DbSet<LifeHack> LifeHacks { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<Category> Categories { get; set; }
-    public DbSet<UserData> UsersData { get; set; }
+    public DbSet<UserData?> UsersData { get; set; }
 
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
     {
