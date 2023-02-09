@@ -36,4 +36,19 @@ public class LifeHackDao : ILifeHackDao
 
     public List<LifeHack> GetByUserId(int userId) => _context.LifeHacks
         .Where(lifeHack => lifeHack.UserId == userId).ToList();
+    
+    public async Task IncreasePoints(int id)
+    {
+        Get(id).Points++;
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DecreasePoints(int id)
+    {
+        Get(id).Points--;
+        await _context.SaveChangesAsync();
+    }
+
+    public List<LifeHack> GetByCategory(int categoryId) =>
+        _context.LifeHacks.Where(lifeHack => lifeHack.categoriesId.Contains(categoryId)).ToList();
 }

@@ -36,4 +36,16 @@ public class CommentDao : ICommentDao
 
     public List<Comment> GetByUserId(int userId) => _context.Comments
         .Where(comment => comment.UserId == userId).ToList();
+
+    public async Task IncreasePoints(int id)
+    {
+        Get(id).Points++;
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DecreasePoints(int id)
+    {
+        Get(id).Points--;
+        await _context.SaveChangesAsync();
+    }
 }
