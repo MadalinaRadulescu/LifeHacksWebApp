@@ -1,5 +1,8 @@
+using System.Text;
 using System.Text.Json.Serialization;
 using LifesaverHub.Data;
+using LifesaverHub.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
