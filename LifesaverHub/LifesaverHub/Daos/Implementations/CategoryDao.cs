@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LifesaverHub.Daos.Implementations;
 
-public class CategoryDao : ICategoryDao
+public class 
+CategoryDao : ICategoryDao
 {
     private readonly DatabaseContext _context;
 

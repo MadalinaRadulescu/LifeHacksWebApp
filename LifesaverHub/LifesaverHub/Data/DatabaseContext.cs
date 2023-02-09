@@ -1,21 +1,23 @@
 ﻿using LifesaverHub.Models.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LifesaverHub.Data;
 
-public class DatabaseContext : DbContext
+public class DatabaseContext : IdentityDbContext
 {
     public DbSet<LifeHack> LifeHacks { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<UserData?> UsersData { get; set; }
 
-    public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
+    public DatabaseContext(DbContextOptions options) : base(options)
     {
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Comment>().Property(p => p.RegistredTime)
             .HasDefaultValueSql("NOW()");
         modelBuilder.Entity<LifeHack>().Property(p => p.RegistredTime)
