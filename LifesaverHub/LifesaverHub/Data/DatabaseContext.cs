@@ -8,7 +8,7 @@ public class DatabaseContext : DbContext
     public DbSet<LifeHack> LifeHacks { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<Category> Categories { get; set; }
-    public DbSet<UserData> UsersData { get; set; }
+    public DbSet<UserData?> UsersData { get; set; }
 
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
     {
@@ -16,10 +16,15 @@ public class DatabaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Comment>().Property(p => p.PublishedAt).HasDefaultValueSql("NOW()");
-        modelBuilder.Entity<LifeHack>().Property(p => p.PublishedAt).HasDefaultValueSql("NOW()");
-        modelBuilder.Entity<UserData>().Property(p => p.PublishedAt).HasDefaultValueSql("NOW()");
-        
+        modelBuilder.Entity<Comment>().Property(p => p.RegistredTime)
+            .HasDefaultValueSql("NOW()");
+        modelBuilder.Entity<LifeHack>().Property(p => p.RegistredTime)
+            .HasDefaultValueSql("NOW()");
+        modelBuilder.Entity<UserData>().Property(p => p.RegistredTime)
+            .HasDefaultValueSql("NOW()");
+        modelBuilder.Entity<Category>().Property(p => p.RegistredTime)
+            .HasDefaultValueSql("NOW()");
+
         var lifeHacks = new[]
         {
             new LifeHack
@@ -71,7 +76,7 @@ public class DatabaseContext : DbContext
                 UserId = 1
             }
         };
-        
+
         var comments = new[]
         {
             new Comment
@@ -98,7 +103,7 @@ public class DatabaseContext : DbContext
                 Points = -5
             }
         };
-        
+
         var categories = new[]
         {
             new Category
@@ -122,13 +127,13 @@ public class DatabaseContext : DbContext
                 Name = "Funny"
             }
         };
-        
+
         lifeHacks[0].categoriesId.Add(0);
         lifeHacks[1].categoriesId.Add(0);
         lifeHacks[2].categoriesId.Add(1);
         lifeHacks[3].categoriesId.Add(3);
         lifeHacks[4].categoriesId.Add(0);
-        
+
         modelBuilder.Entity<UserData>().HasData(new UserData
         {
             Id = 1,
@@ -144,9 +149,9 @@ public class DatabaseContext : DbContext
             Country = "Ohio",
             ZipCode = "1234"
         });
-        
+
         lifeHacks.ToList().ForEach(lifeHack => modelBuilder.Entity<LifeHack>().HasData(lifeHack));
         comments.ToList().ForEach(comment => modelBuilder.Entity<Comment>().HasData(comment));
-        categories.ToList().ForEach(category =>modelBuilder.Entity<Category>().HasData(category));
+        categories.ToList().ForEach(category => modelBuilder.Entity<Category>().HasData(category));
     }
 }

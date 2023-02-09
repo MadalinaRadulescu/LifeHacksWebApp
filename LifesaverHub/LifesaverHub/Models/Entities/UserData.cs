@@ -3,10 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace LifesaverHub.Models.Entities;
 
-public class UserData : BaseEntity
+public class UserData : DetaliedBaseEntity
 {
-    
-    
     [AllowNull]
     public string CardHolder { get; set; }
     [AllowNull]
@@ -17,10 +15,8 @@ public class UserData : BaseEntity
     public int ExpiryYear { get; set; }
     [AllowNull]
     public string Cvv { get; set; }
-
-    [AllowNull] 
-    public string AddressLine1 { get; set; } 
-
+    [AllowNull]
+    public string AddressLine1 { get; set; }
     [AllowNull] 
     public string AddressLine2 { get; set; } = "";
     [AllowNull]
@@ -31,6 +27,4 @@ public class UserData : BaseEntity
     public string Country { get; set; }
     [AllowNull]
     public string ZipCode { get; set; }
-    
-    
 }
