@@ -15,7 +15,11 @@ public class DatabaseContext : DbContext
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    { 
+    {
+        modelBuilder.Entity<Comment>().Property(p => p.PublishedAt).HasDefaultValueSql("NOW()");
+        modelBuilder.Entity<LifeHack>().Property(p => p.PublishedAt).HasDefaultValueSql("NOW()");
+        modelBuilder.Entity<UserData>().Property(p => p.PublishedAt).HasDefaultValueSql("NOW()");
+        
         var lifeHacks = new[]
         {
             new LifeHack
@@ -25,8 +29,8 @@ public class DatabaseContext : DbContext
                 Description =
                     "To easily remove the steam from the strawberries we recommend to use a straw as in image from bellow.",
                 PhotoName = "strawberries and the straw",
-                VoteCount = 27,
-                userId = 0
+                Points = 27,
+                UserId = 0
             },
             new LifeHack
             {
@@ -35,7 +39,7 @@ public class DatabaseContext : DbContext
                 Description =
                     "The best way to kip chips fresh after opening is by using any clipper, like the ones from hanger.",
                 PhotoName = "chips and hanger",
-                userId = 0
+                UserId = 0
             },
             new LifeHack
             {
@@ -43,8 +47,8 @@ public class DatabaseContext : DbContext
                 Title = "Pasta Lighter",
                 Description =
                     "We’re sure you’re stocking up on sweet smelling candles to make your home extra cozy for the colder months. But, if your candles are burning too low to reach the wick, there’s no reason to go without your favorite scent. Instead of burning your fingers, light a piece of uncooked spaghetti. It’ll reach into those deep candles and burn long enough to light the candles on grandpa’s birthday cake!",
-                userId = 0,
-                VoteCount = 12
+                UserId = 0,
+                Points = 12
             },
             new LifeHack
             {
@@ -53,8 +57,8 @@ public class DatabaseContext : DbContext
                 Description =
                     "Fastest way to do that is simply putting a hair elastic on a vacuum and slowly suck the hair in.",
                 Link = "https://www.boredpanda.com/blog/wp-content/org_uploads/2013/01/life-hacks-36.gif",
-                VoteCount = -43,
-                userId = 1
+                Points = -43,
+                UserId = 1
             },
             new LifeHack
             {
@@ -63,11 +67,11 @@ public class DatabaseContext : DbContext
                 Description =
                     "Sprinkle dried rice under your cupcake cases before baking. The rice absorbs any grease throughout baking meaning you get lovely dry cupcake bases and no greasy patches on your cases!",
                 PhotoName = "cupcakes and rice",
-                VoteCount = 25,
-                userId = 1
+                Points = 25,
+                UserId = 1
             }
         };
-
+        
         var comments = new[]
         {
             new Comment
@@ -83,7 +87,7 @@ public class DatabaseContext : DbContext
                 Text = "Why should i want to do that???",
                 UserId = 0,
                 LifeHackId = 3,
-                VoteCount = 5
+                Points = 5
             },
             new Comment
             {
@@ -91,10 +95,10 @@ public class DatabaseContext : DbContext
                 Text = "Boring",
                 UserId = 1,
                 LifeHackId = 0,
-                VoteCount = -5
+                Points = -5
             }
         };
-
+        
         var categories = new[]
         {
             new Category
