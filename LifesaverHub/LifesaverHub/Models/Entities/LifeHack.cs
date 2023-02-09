@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace LifesaverHub.Models.Entities;
+﻿namespace LifesaverHub.Models.Entities;
 
 public class LifeHack : DetaliedBaseEntity
 {

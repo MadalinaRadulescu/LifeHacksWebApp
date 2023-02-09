@@ -4,23 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-// var host = CreateHostBuilder(args).Build();
-//
-// using (var scope = host.Services.CreateScope())
-// {
-//     var services = scope.ServiceProvider;
-//     try
-//     {
-//         var context = services.GetRequiredService<DatabaseContext>();
-//         DbInitializer.Initialize(context);
-//     }
-//     catch (Exception ex)
-//     {
-//         var logger = services.GetRequiredService<ILogger<Program>>();
-//         logger.LogError(ex, "An error occurred while setting up the database.");
-//     }
-// }
-
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
@@ -45,6 +28,14 @@ builder.Services.AddAuthentication();  // To DO
 builder.Services.AddAuthorization();
 builder.Services.AddCors();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -57,7 +48,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 
-app.UseCors();
+// app.UseCors(opt => opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("https://localhost:3000")); 
+app.UseCors("CorsPolicy");
 
 app.UseRouting();
 app.UseAuthorization();
@@ -65,23 +57,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-
-// IHostBuilder CreateHostBuilder(string[] args) =>
-//     Host.CreateDefaultBuilder(args)
-//         .ConfigureWebHostDefaults(webBuilder =>
-//         {
-//             webBuilder.UseStartup<Startup>();
-//         });
-
-// public class Startup
-// {
-//     public IConfiguration Configuration { get; }
-//     public Startup(IConfiguration configuration)
-//     {
-//         Configuration = configuration;
-//     }
-//     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-//     {
-//     }
-// }
