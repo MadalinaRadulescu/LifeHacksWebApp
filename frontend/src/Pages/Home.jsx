@@ -3,14 +3,14 @@ import {Link} from "react-router-dom";
 
 const Home = () => {
     document.title = "Life Saver Hub"
-    const [lifeHacks, setLifeHacks] = useState(null);
-    const [error, setError] = useState(null);
-    
-    useEffect(() => {
-        fetch("https://localhost:44330/lifeHack/all")
-            .then(response => response.json())
-            .then(json => setLifeHacks(json))
-            .catch(error => setError(error));
+        const [lifeHacks, setLifeHacks] = useState(null);
+        const [error, setError] = useState(null);
+        
+        useEffect(() => {
+            fetch("https://localhost:44330/lifeHack/all")
+                .then(response => response.json())
+                .then(json => setLifeHacks(json))
+                .catch(error => setError(error));
     }, []);
     if (error) {
         console.log(error)
@@ -22,7 +22,7 @@ const Home = () => {
         return (
             <div>
                 <h1 className="PageTitle">Life Saver Hub</h1>
-                <dib>
+                <div>
                     {lifeHacks.map(item => (
                         <div key={item.id}>
                             <h2>{item.title}</h2>
@@ -33,7 +33,7 @@ const Home = () => {
                             <p>VoteCount: {item.points}</p>
                         </div>
                     ))}
-                </dib>
+                </div>
             </div>
         );
     }
