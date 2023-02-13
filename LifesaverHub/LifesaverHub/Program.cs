@@ -40,11 +40,11 @@ builder.Services.AddAuthentication(auth =>
     {
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidAudience = "http://localhost:5260/",
-        ValidIssuer = "http://localhost:5260/",
+        ValidAudience = configuration["AuthSettings:Audience"],
+        ValidIssuer = configuration["AuthSettings:Issuer"],
         RequireExpirationTime = true,
         IssuerSigningKey =
-            new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is the key that we will use in the encryption")),
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["AuthSettings:Key"])),
         ValidateIssuerSigningKey = true
     };
 });
@@ -68,6 +68,7 @@ app.UseAuthentication();
 app.UseCors();
 
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
