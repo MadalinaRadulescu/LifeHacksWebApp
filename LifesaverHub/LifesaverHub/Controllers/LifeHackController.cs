@@ -10,7 +10,12 @@ namespace LifesaverHub.Controllers;
 public class LifeHackController : Controller
 {
     private readonly ILifeHackDao _lifeHack;
-    public LifeHackController(DatabaseContext db) => _lifeHack = new LifeHackDao(db);
+    private readonly IUserDataDao _userData;
+    public LifeHackController(DatabaseContext db)
+    {
+        _lifeHack = new LifeHackDao(db);
+        _userData = new UserDataDao(db);
+    }
 
     [HttpGet("all")]
     public List<LifeHack> GetLifeHacks() => _lifeHack.GetAll();
@@ -27,6 +32,29 @@ public class LifeHackController : Controller
     [HttpPut("update")]
     public async Task UpdateLifeHack([FromBody] LifeHack lifeHack) => await _lifeHack.Update(lifeHack);
     
-    // [HttpGet("user/{id}")]
-    // public List<LifeHack> GetUserLifeHacks(int id) => _lifeHack.GetByUserId(id);
+    [HttpGet("user/{userId}")]
+    public List<LifeHack> GetUserLifeHacks(string userId) => _lifeHack.GetByUserId(userId);
+    
+    [HttpGet("category/{categoryId}")]
+    public List<LifeHack> GetLifeHacksOfCategory(int categoryId) => _lifeHack.GetByCategory(categoryId);
+    
+    [HttpGet("topRated")]
+    public List<LifeHack> GetLifeHacksSortedByVote() => _lifeHack.GetAll().OrderByDescending(comment => comment.Points).ToList();
+    
+    [HttpGet("newest")]
+    public List<LifeHack> GetLifeHacksSortedByDate() => _lifeHack.GetAll().OrderByDescending(comment => comment.RegistredTime).ToList();
+
+    [HttpPut("upVote/{id}")] 
+    public async Task IncrementLifeHackPoints(int id)
+    {
+        await _lifeHack.IncreasePoints(id);
+        await _userData.IncreasePoints(_lifeHack.Get(id).UserId);
+    }
+    
+    [HttpPut("downVote/{id}")] 
+    public async Task DecrementLifeHackPoints(int id)
+    {
+        await _lifeHack.DecreasePoints(id);
+        await _userData.DecreasePoints(_lifeHack.Get(id).UserId);
+    }
 }

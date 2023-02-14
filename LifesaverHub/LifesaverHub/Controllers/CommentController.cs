@@ -10,7 +10,12 @@ namespace LifesaverHub.Controllers;
 public class CommentController : Controller
 {
     private readonly ICommentDao _comment;
-    public CommentController(DatabaseContext db) => _comment = new CommentDao(db);
+    private readonly IUserDataDao _userData;
+    public CommentController(DatabaseContext db)
+    {
+        _userData = new UserDataDao(db);
+        _comment = new CommentDao(db);
+    }
 
     [HttpGet("all")]
     public List<Comment> GetComments() => _comment.GetAll();
@@ -29,4 +34,24 @@ public class CommentController : Controller
     
     [HttpGet("user/{id}")]
     public List<Comment> GetUserComments(string id) => _comment.GetByUserId(id);
+    
+    [HttpGet("topRated")]
+    public List<Comment> GetCommentsSortedByVote() => _comment.GetAll().OrderByDescending(comment => comment.Points).ToList();
+    
+    [HttpGet("newest")]
+    public List<Comment> GetCommentsSortedByDate() => _comment.GetAll().OrderByDescending(comment => comment.RegistredTime).ToList();
+
+    [HttpPut("upVote/{id}")] 
+    public async Task IncrementCommentPoints(int id) 
+    {
+        await _comment.IncreasePoints(id);
+        await _userData.IncreasePoints(_comment.Get(id).UserId);
+    }
+    
+    [HttpPut("downVote/{id}")] 
+    public async Task DecrementCommentPoints(int id)
+    {
+        await _comment.DecreasePoints(id);
+        await _userData.DecreasePoints(_comment.Get(id).UserId);
+    }
 }

@@ -27,6 +27,6 @@ public class UserDataController : Controller
     [HttpPut("update")]
     public async Task UpdateUserData([FromBody] UserData userData) => await _userData.Update(userData);
     
-    // [HttpGet("user/{id}")]
-    // public List<UserData> GetUserDataByUserId(int id) => _userData.GetByUserId(id);
+    [HttpGet("user/{userId}")]
+    public List<UserData> GetUserDataByUserId(string userId) => _userData.GetByUserId(userId);
 }

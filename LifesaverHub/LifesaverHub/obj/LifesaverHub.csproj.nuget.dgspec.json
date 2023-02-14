@@ -1,26 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj": {}
+    "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\LifesaverHub.csproj": {}
   },
   "projects": {
-    "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj": {
+    "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\LifesaverHub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj",
+        "projectUniqueName": "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\LifesaverHub.csproj",
         "projectName": "LifesaverHub",
-        "projectPath": "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj",
-        "packagesPath": "/Users/Madi/.nuget/packages/",
-        "outputPath": "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/obj/",
+        "projectPath": "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\LifesaverHub.csproj",
+        "packagesPath": "C:\\Users\\Catta\\.nuget\\packages\\",
+        "outputPath": "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/Madi/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Catta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -42,6 +42,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[7.0.2, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -93,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

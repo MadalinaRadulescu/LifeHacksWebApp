@@ -145,6 +145,40 @@
 					"response": []
 				},
 				{
+					"name": "Get All Sorted By Points",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CommentUrl}}/topRated",
+							"host": [
+								"{{CommentUrl}}"
+							],
+							"path": [
+								"topRated"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Sorted By Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CommentUrl}}/newest",
+							"host": [
+								"{{CommentUrl}}"
+							],
+							"path": [
+								"newest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get By User Id",
 					"request": {
 						"method": "GET",
@@ -257,6 +291,60 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Vote Up",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"text\": \"Test2\",\r\n        \"lifeHackId\": 0,\r\n        \"points\": 0,\r\n        \"userId\": 0,\r\n        \"id\": 5,\r\n        \"registredTime\": \"2023-02-08T20:07:17.922826Z\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CommentUrl}}/upVote/1",
+							"host": [
+								"{{CommentUrl}}"
+							],
+							"path": [
+								"upVote",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vote Down",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"text\": \"Test2\",\r\n        \"lifeHackId\": 0,\r\n        \"points\": 0,\r\n        \"userId\": 0,\r\n        \"id\": 5,\r\n        \"registredTime\": \"2023-02-08T20:07:17.922826Z\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CommentUrl}}/downVote/2",
+							"host": [
+								"{{CommentUrl}}"
+							],
+							"path": [
+								"downVote",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -275,6 +363,40 @@
 							],
 							"path": [
 								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Sorted By Points",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LifeHackUrl}}/topRated",
+							"host": [
+								"{{LifeHackUrl}}"
+							],
+							"path": [
+								"topRated"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Sorted By Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LifeHackUrl}}/newest",
+							"host": [
+								"{{LifeHackUrl}}"
+							],
+							"path": [
+								"newest"
 							]
 						}
 					},
@@ -304,12 +426,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{LifeHackUrl}}/1",
+							"raw": "{{LifeHackUrl}}/2",
 							"host": [
 								"{{LifeHackUrl}}"
 							],
 							"path": [
-								"1"
+								"2"
 							]
 						}
 					},
@@ -393,6 +515,60 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Vote Up",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"text\": \"Test2\",\r\n        \"lifeHackId\": 0,\r\n        \"points\": 0,\r\n        \"userId\": 0,\r\n        \"id\": 5,\r\n        \"registredTime\": \"2023-02-08T20:07:17.922826Z\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LifeHackUrl}}/upVote/1",
+							"host": [
+								"{{LifeHackUrl}}"
+							],
+							"path": [
+								"upVote",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vote Down",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"text\": \"Test2\",\r\n        \"lifeHackId\": 0,\r\n        \"points\": 0,\r\n        \"userId\": 0,\r\n        \"id\": 5,\r\n        \"registredTime\": \"2023-02-08T20:07:17.922826Z\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LifeHackUrl}}/downVote/2",
+							"host": [
+								"{{LifeHackUrl}}"
+							],
+							"path": [
+								"downVote",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -440,12 +616,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{UserDataUrl}}/1",
+							"raw": "{{UserDataUrl}}/0",
 							"host": [
 								"{{UserDataUrl}}"
 							],
 							"path": [
-								"1"
+								"0"
 							]
 						}
 					},
