@@ -28,5 +28,5 @@ public class CommentController : Controller
     public async Task UpdateComment([FromBody] Comment comment) => await _comment.Update(comment);
     
     [HttpGet("user/{id}")]
-    public List<Comment> GetUserComments(int id) => _comment.GetByUserId(id);
+    public List<Comment> GetUserComments(string id) => _comment.GetByUserId(id);
 }

@@ -34,6 +34,6 @@ public class UserDataDao : IUserDataDao
     public List<UserData> GetAll() => _context.UsersData
         .ToListAsync().Result!;
 
-    public List<UserData> GetByUserId(int userId) => _context.UsersData
+    public List<UserData> GetByUserId(string userId) => _context.UsersData
         .Where(userData => userData!.UserId == userId).ToList()!;
 }

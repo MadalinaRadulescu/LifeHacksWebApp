@@ -27,6 +27,6 @@ public class LifeHackController : Controller
     [HttpPut("update")]
     public async Task UpdateLifeHack([FromBody] LifeHack lifeHack) => await _lifeHack.Update(lifeHack);
     
-    [HttpGet("user/{id}")]
-    public List<LifeHack> GetUserLifeHacks(int id) => _lifeHack.GetByUserId(id);
+    // [HttpGet("user/{id}")]
+    // public List<LifeHack> GetUserLifeHacks(int id) => _lifeHack.GetByUserId(id);
 }

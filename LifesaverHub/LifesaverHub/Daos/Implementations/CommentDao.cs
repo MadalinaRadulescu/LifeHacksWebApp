@@ -34,6 +34,6 @@ public class CommentDao : ICommentDao
     public List<Comment> GetAll() => _context.Comments
         .ToListAsync().Result;
 
-    public List<Comment> GetByUserId(int userId) => _context.Comments
+    public List<Comment> GetByUserId(string userId) => _context.Comments
         .Where(comment => comment.UserId == userId).ToList();
 }

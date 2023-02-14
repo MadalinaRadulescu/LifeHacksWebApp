@@ -34,6 +34,6 @@ public class LifeHackDao : ILifeHackDao
     public List<LifeHack> GetAll() => _context.LifeHacks
         .ToListAsync().Result;
 
-    public List<LifeHack> GetByUserId(int userId) => _context.LifeHacks
+    public List<LifeHack> GetByUserId(string userId) => _context.LifeHacks
         .Where(lifeHack => lifeHack.UserId == userId).ToList();
 }
