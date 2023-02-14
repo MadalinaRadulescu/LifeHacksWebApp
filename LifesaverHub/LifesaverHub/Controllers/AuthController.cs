@@ -30,7 +30,7 @@ public class AuthController : ControllerBase
     }
     
     [HttpPost("login")]
-    public async Task<IActionResult> LoginAsync([FromBody] LoginViewModel model)
+    public async Task<IActionResult> LoginAsync([FromForm] LoginViewModel model)
     {
         if (ModelState.IsValid)
         {

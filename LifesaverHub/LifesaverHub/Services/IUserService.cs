@@ -100,7 +100,7 @@ public class UserService : IUserService
         string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
         return new UserManagerResponse()
         {
-            Message = tokenAsString,
+            Message = "You have logged in!",
             IsSuccess = true,
             ExpireDate = token.ValidTo,
         };

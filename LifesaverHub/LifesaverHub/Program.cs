@@ -11,7 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
-
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -51,7 +51,10 @@ builder.Services.AddAuthentication(auth =>
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddAuthorization(); //TODO
-builder.Services.AddCors();
+builder.Services.AddCors(cors=>{ cors.AddPolicy(name:MyAllowSpecificOrigins, policy =>
+{
+    policy.WithOrigins("http://localhost:3000").AllowCredentials().AllowAnyHeader().AllowAnyMethod();
+});});
 
 var app = builder.Build();
 
@@ -65,7 +68,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 
-app.UseCors();
+app.UseCors(opt =>
+{
+    opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:3000");
+});
 
 app.UseRouting();
 app.UseAuthentication();
