@@ -51,10 +51,18 @@ builder.Services.AddAuthentication(auth =>
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddAuthorization(); //TODO
-builder.Services.AddCors(cors=>{ cors.AddPolicy(name:MyAllowSpecificOrigins, policy =>
+
+builder.Services.AddCors(options =>
 {
-    policy.WithOrigins("http://localhost:3000").AllowCredentials().AllowAnyHeader().AllowAnyMethod();
-});});
+    options.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+// builder.Services.AddCors(cors=>{ cors.AddPolicy(name:MyAllowSpecificOrigins, policy =>
+// {
+//     policy.WithOrigins("http://localhost:5260/").AllowCredentials().AllowAnyHeader().AllowAnyMethod();
+// });});
 
 var app = builder.Build();
 
@@ -67,11 +75,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
-
-app.UseCors(opt =>
-{
-    opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:3000");
-});
+app.UseCors("CorsPolicy");
+// app.UseCors(opt =>
+// {
+//     opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:5260/");
+// });
 
 app.UseRouting();
 app.UseAuthentication();

@@ -37,7 +37,7 @@ public class UserDataDao : IUserDataDao
     public List<UserData> GetByUserId(string userId) => _context.UsersData
         .Where(userData => userData!.UserId == userId).ToList()!;
     
-    public async Task IncreasePoints(int id)
+    public async Task IncreasePoints(string id)
     {
         var user = GetByUserId(id);
         if (user.Count == 0) return; 
@@ -45,7 +45,7 @@ public class UserDataDao : IUserDataDao
         await _context.SaveChangesAsync();
     }
 
-    public async Task DecreasePoints(int id)
+    public async Task DecreasePoints(string id)
     {
         var user = GetByUserId(id);
         if (user.Count == 0) return; 

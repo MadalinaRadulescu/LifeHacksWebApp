@@ -1,5 +1,6 @@
 using LifesaverHub.Models;
 using LifesaverHub.Services;
+using LifesaverHub.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LifesaverHub.Controllers;
@@ -35,11 +36,17 @@ public class AuthController : ControllerBase
         if (ModelState.IsValid)
         {
             var result = await _userService.LoginUserAsync(model);
-            if (result.IsSuccess)
-                return Ok(result); // Status code: 200
-            return BadRequest(result);
+            // if (result.IsSuccess)
+            //     return Ok(result); // Status code: 200
+            return Ok(result);
         }
 
-        return BadRequest("Some properties are not valid"); //Status code: 400
+        return Ok(new UserManagerResponse()
+        {
+            Message = "Email and password required. Password has to be minimum 5 characters and maximum 50!",
+            IsSuccess = false,
+        });
+
+        // return BadRequest("Some properties are not valid"); //Status code: 400
     }
 }

@@ -98,6 +98,7 @@ public class UserService : IUserService
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));
 
         string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
+        
         return new UserManagerResponse()
         {
             Message = "You have logged in!",

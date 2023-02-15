@@ -7,7 +7,7 @@ const Home = () => {
         const [error, setError] = useState(null);
         
         useEffect(() => {
-            fetch("https://localhost:44330/lifeHack/all")
+            fetch("http://localhost:5260/lifeHack/all")
                 .then(response => response.json())
                 .then(json => setLifeHacks(json))
                 .catch(error => setError(error));
