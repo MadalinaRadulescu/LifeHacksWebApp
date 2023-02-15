@@ -13,16 +13,19 @@ public class CategoryController : Controller
     public CategoryController(DatabaseContext db) => _category = new CategoryDao(db);
 
     [HttpGet("all")]
-    public List<Category> GetCategories() => _category.GetAll();
+    public List<Category> GetCategories()
+    {
+        return _category.GetAll();
+    }
 
     [HttpGet("{id}")]
-    public Category GetCategory(int id) => _category.Get(id);
+    public Category GetCategory(string id) => _category.Get(id);
 
     [HttpPost("add")]
     public async Task AddCategory([FromBody] Category category) => await _category.Add(category);
     
     [HttpDelete("remove/{id}")]
-    public async Task RemoveCategory(int id) => await _category.Remove(id);
+    public async Task RemoveCategory(string id) => await _category.Remove(id);
     
     [HttpPut("update")]
     public async Task UpdateCategory([FromBody] Category category) => await _category.Update(category);

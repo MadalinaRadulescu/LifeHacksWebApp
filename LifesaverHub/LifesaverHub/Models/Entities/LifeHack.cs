@@ -1,6 +1,6 @@
 ﻿namespace LifesaverHub.Models.Entities;
 
-public class LifeHack : DetaliedBaseEntity
+public class LifeHack : DetailedBaseEntity
 {
     public string Title { get; set; }
     public string Description { get; set; }

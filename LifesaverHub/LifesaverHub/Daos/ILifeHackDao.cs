@@ -2,7 +2,7 @@
 
 namespace LifesaverHub.Daos;
 
-public interface ILifeHackDao : ISpecificDao<LifeHack>
+public interface ILifeHackDao : IDetailedDao<LifeHack>, IDao<LifeHack>
 {
     /// <summary>Get all LifeHacks from the table based on the category.</summary>
     /// <param name="categoryId">Id of the category.</param>

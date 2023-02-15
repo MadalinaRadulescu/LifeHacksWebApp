@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace LifesaverHub.Models.Entities;
 
-public class UserData : DetaliedBaseEntity
+public class UserData : DetailedBaseEntity
 {
     [AllowNull]
     public string CardHolder { get; set; }

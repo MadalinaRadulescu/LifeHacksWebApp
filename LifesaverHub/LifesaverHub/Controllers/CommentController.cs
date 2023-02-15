@@ -21,19 +21,19 @@ public class CommentController : Controller
     public List<Comment> GetComments() => _comment.GetAll();
 
     [HttpGet("{id}")]
-    public Comment GetComment(int id) => _comment.Get(id);
+    public Comment GetComment(string id) => _comment.Get(id);
 
     [HttpPost("add")]
     public async Task AddComment([FromBody] Comment comment) => await _comment.Add(comment);
     
     [HttpDelete("remove/{id}")]
-    public async Task RemoveComment(int id) => await _comment.Remove(id);
+    public async Task RemoveComment(string id) => await _comment.Remove(id);
     
     [HttpPut("update")]
     public async Task UpdateComment([FromBody] Comment comment) => await _comment.Update(comment);
     
     [HttpGet("user/{userId}")]
-    public List<Comment> GetUserComments(int userId) => _comment.GetByUserId(userId);
+    public List<Comment> GetUserComments(string userId) => _comment.GetByUserId(userId);
     
     [HttpGet("topRated")]
     public List<Comment> GetCommentsSortedByVote() => _comment.GetAll().OrderByDescending(comment => comment.Points).ToList();
@@ -42,14 +42,14 @@ public class CommentController : Controller
     public List<Comment> GetCommentsSortedByDate() => _comment.GetAll().OrderByDescending(comment => comment.RegistredTime).ToList();
 
     [HttpPut("upVote/{id}")] 
-    public async Task IncrementCommentPoints(int id) 
+    public async Task IncrementCommentPoints(string id) 
     {
         await _comment.IncreasePoints(id);
         await _userData.IncreasePoints(_comment.Get(id).UserId);
     }
     
     [HttpPut("downVote/{id}")] 
-    public async Task DecrementCommentPoints(int id)
+    public async Task DecrementCommentPoints(string id)
     {
         await _comment.DecreasePoints(id);
         await _userData.DecreasePoints(_comment.Get(id).UserId);

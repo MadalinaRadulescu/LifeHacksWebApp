@@ -1,0 +1,36 @@
+﻿using LifesaverHub.Data;
+using LifesaverHub.Models.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace LifesaverHub.Daos.Implementations;
+
+public class DetailedDao<T> : Dao<T>, IDetailedDao<T> where T : DetailedBaseEntity
+{
+    private readonly DatabaseContext _context;
+
+    public DetailedDao(DatabaseContext context) : base(context) => _context = context;
+
+    public List<T> GetByUserId(string userId) => this switch
+    {
+        Comment => (_context.Comments.Where(comment => comment.UserId == userId).ToListAsync().Result as List<T>)!,
+        LifeHack =>(_context.LifeHacks.Where(lifeHack => lifeHack.UserId == userId).ToListAsync().Result as List<T>)!,
+        UserData => (_context.UsersData.Where(userData => userData.UserId == userId).ToListAsync().Result as List<T>)!,
+        _ => new List<T>()
+    };
+
+    public async Task IncreasePoints(string id)
+    {
+        var dao = new Dao<T>(_context);
+        var elem = dao.Get(id);
+        elem.Points++;
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DecreasePoints(string id)
+    {
+        var dao = new Dao<T>(_context);
+        var elem = dao.Get(id);
+        elem.Points--;
+        await _context.SaveChangesAsync();
+    }
+}

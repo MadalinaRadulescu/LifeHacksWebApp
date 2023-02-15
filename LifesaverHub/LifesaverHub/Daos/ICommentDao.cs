@@ -2,7 +2,6 @@
 
 namespace LifesaverHub.Daos;
 
-public interface ICommentDao : ISpecificDao<Comment>
+public interface ICommentDao : IDetailedDao<Comment>, IDao<Comment>
 {
-    
 }

@@ -1,7 +1,7 @@
 ﻿namespace LifesaverHub.Models.Entities;
 
-public class DetaliedBaseEntity : BaseEntity
+public class DetailedBaseEntity : BaseEntity
 {
     public long Points { get; set; } = 0;
-    public int UserId { get; set; }
+    public string UserId { get; set; }
 }

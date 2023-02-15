@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LifesaverHub.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230209204431_InitialCreate")]
+    [Migration("20230214170749_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -97,8 +97,9 @@ namespace LifesaverHub.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -112,7 +113,7 @@ namespace LifesaverHub.Migrations
                             Points = 0L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "That actually save my cookies!",
-                            UserId = 0
+                            UserId = "0"
                         },
                         new
                         {
@@ -121,7 +122,7 @@ namespace LifesaverHub.Migrations
                             Points = 5L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "Why should i want to do that???",
-                            UserId = 0
+                            UserId = "0"
                         },
                         new
                         {
@@ -130,7 +131,7 @@ namespace LifesaverHub.Migrations
                             Points = -5L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "Boring",
-                            UserId = 1
+                            UserId = "1"
                         });
                 });
 
@@ -166,8 +167,9 @@ namespace LifesaverHub.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<List<long>>("categoriesId")
                         .IsRequired()
@@ -187,8 +189,8 @@ namespace LifesaverHub.Migrations
                             Points = 27L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "How to remove the steam from the strawberries?",
-                            UserId = 0,
-                            categoriesId = new List<long> { 0L }
+                            UserId = "0",
+                            categoriesId = new List<long> { 1L }
                         },
                         new
                         {
@@ -199,8 +201,8 @@ namespace LifesaverHub.Migrations
                             Points = 0L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "How to properly close a bag of chips?",
-                            UserId = 0,
-                            categoriesId = new List<long> { 0L }
+                            UserId = "0",
+                            categoriesId = new List<long> { 1L }
                         },
                         new
                         {
@@ -211,8 +213,8 @@ namespace LifesaverHub.Migrations
                             Points = 12L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Pasta Lighter",
-                            UserId = 0,
-                            categoriesId = new List<long> { 1L }
+                            UserId = "0",
+                            categoriesId = new List<long> { 2L }
                         },
                         new
                         {
@@ -223,8 +225,8 @@ namespace LifesaverHub.Migrations
                             Points = -43L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Fastest way to catch the hair in the tail",
-                            UserId = 1,
-                            categoriesId = new List<long> { 3L }
+                            UserId = "1",
+                            categoriesId = new List<long> { 4L }
                         },
                         new
                         {
@@ -235,8 +237,8 @@ namespace LifesaverHub.Migrations
                             Points = 25L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Useful tip for baking cupcakes",
-                            UserId = 1,
-                            categoriesId = new List<long> { 0L }
+                            UserId = "1",
+                            categoriesId = new List<long> { 1L }
                         });
                 });
 
@@ -294,8 +296,9 @@ namespace LifesaverHub.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("NOW()");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("ZipCode")
                         .IsRequired()
@@ -321,7 +324,7 @@ namespace LifesaverHub.Migrations
                             PhoneNumber = "5555555555",
                             Points = 0L,
                             RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = 0,
+                            UserId = "0",
                             ZipCode = "1234"
                         });
                 });

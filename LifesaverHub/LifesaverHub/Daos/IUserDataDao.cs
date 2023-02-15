@@ -2,7 +2,7 @@
 
 namespace LifesaverHub.Daos;
 
-public interface IUserDataDao : ISpecificDao<UserData>
+public interface IUserDataDao : IDetailedDao<UserData>, IDao<UserData>
 {
     
 }
