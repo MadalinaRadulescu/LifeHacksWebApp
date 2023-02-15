@@ -18,13 +18,13 @@ public class DatabaseContext : IdentityDbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Comment>().Property(p => p.RegistredTime)
+        modelBuilder.Entity<Comment>().Property(p => p.RegisteredTime)
             .HasDefaultValueSql("NOW()");
-        modelBuilder.Entity<LifeHack>().Property(p => p.RegistredTime)
+        modelBuilder.Entity<LifeHack>().Property(p => p.RegisteredTime)
             .HasDefaultValueSql("NOW()");
-        modelBuilder.Entity<UserData>().Property(p => p.RegistredTime)
+        modelBuilder.Entity<UserData>().Property(p => p.RegisteredTime)
             .HasDefaultValueSql("NOW()");
-        modelBuilder.Entity<Category>().Property(p => p.RegistredTime)
+        modelBuilder.Entity<Category>().Property(p => p.RegisteredTime)
             .HasDefaultValueSql("NOW()");
 
         var lifeHacks = new[]

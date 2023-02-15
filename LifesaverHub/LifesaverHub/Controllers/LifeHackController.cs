@@ -40,7 +40,7 @@ public class LifeHackController : Controller
     public List<LifeHack> GetLifeHacksSortedByVote() => _lifeHack.GetAll().OrderByDescending(comment => comment.Points).ToList();
     
     [HttpGet("newest")]
-    public List<LifeHack> GetLifeHacksSortedByDate() => _lifeHack.GetAll().OrderByDescending(comment => comment.RegistredTime).ToList();
+    public List<LifeHack> GetLifeHacksSortedByDate() => _lifeHack.GetAll().OrderByDescending(comment => comment.RegisteredTime).ToList();
 
     [HttpPut("upVote/{id}")] 
     public async Task IncrementLifeHackPoints(string id)

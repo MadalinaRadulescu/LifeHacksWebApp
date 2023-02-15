@@ -1,6 +1,7 @@
 ﻿import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {CategoryById} from "../Components/Categories/CategoryById";
+import {GetUserName} from "../Components/Users/GetUserName";
 
 const Home = () => {
     document.title = "Life Saver Hub"
@@ -20,22 +21,25 @@ const Home = () => {
     return (<div>
                 <h1 className="PageTitle">Life Saver Hub</h1>
                 <div>
-                    {lifeHacks.map(item => (
-                        <div key={item.id}>
+                    {lifeHacks.map(lifeHack => (
+                        <div key={lifeHack.id}>
                             <br />
-                            <h2>{item.title}</h2>
-                            {item.photoName !== "" &&
-                                <img src={`data:image/png;base64,${item.photoName}`} alt={item.photoName} />
+                            <Link to={`/lifeHack/${lifeHack.id}`}>
+                                <h2>{lifeHack.title}</h2>
+                            </Link>
+                            {lifeHack.photoName !== "" &&
+                                <img src={`data:image/png;base64,${lifeHack.photoName}`} alt={lifeHack.photoName} />
                             }
-                            <p>{item.description}</p>
-                            <Link to={item.link}>{item.link}</Link>
-                            {item.categoriesId.map(categoryId => (
+                            <p>{lifeHack.description}</p>
+                            <Link to={lifeHack.link}>{lifeHack.link}</Link>
+                            {lifeHack.categoriesId.map(categoryId => (
                                 <div key={categoryId}>
                                     <CategoryById id={categoryId}/>
                                 </div>
                             ))}
-                            <p>Published at: {item.registredTime}</p>
-                            <p>VoteCount: {item.points}</p>
+                            <p>Published at: {lifeHack.registeredTime}</p>
+                            <p>VoteCount: {lifeHack.points}</p>
+                            <GetUserName id={lifeHack.userId} />
                         </div>))}
                 </div>
             </div>);

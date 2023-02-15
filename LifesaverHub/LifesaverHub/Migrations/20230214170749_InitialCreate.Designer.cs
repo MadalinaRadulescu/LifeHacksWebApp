@@ -38,7 +38,7 @@ namespace LifesaverHub.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("RegistredTime")
+                    b.Property<DateTime>("RegisteredTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("NOW()");
@@ -88,7 +88,7 @@ namespace LifesaverHub.Migrations
                     b.Property<long>("Points")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("RegistredTime")
+                    b.Property<DateTime>("RegisteredTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("NOW()");
@@ -158,7 +158,7 @@ namespace LifesaverHub.Migrations
                     b.Property<long>("Points")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("RegistredTime")
+                    b.Property<DateTime>("RegisteredTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("NOW()");
@@ -291,7 +291,7 @@ namespace LifesaverHub.Migrations
                     b.Property<long>("Points")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("RegistredTime")
+                    b.Property<DateTime>("RegisteredTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("NOW()");

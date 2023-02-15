@@ -35,11 +35,14 @@ public class CommentController : Controller
     [HttpGet("user/{userId}")]
     public List<Comment> GetUserComments(string userId) => _comment.GetByUserId(userId);
     
+    [HttpGet("lifeHack/{lifeHackId}")]
+    public List<Comment> GetLifeHackComments(string lifeHackId) => _comment.GetByLifeHackId(lifeHackId);
+    
     [HttpGet("topRated")]
     public List<Comment> GetCommentsSortedByVote() => _comment.GetAll().OrderByDescending(comment => comment.Points).ToList();
     
     [HttpGet("newest")]
-    public List<Comment> GetCommentsSortedByDate() => _comment.GetAll().OrderByDescending(comment => comment.RegistredTime).ToList();
+    public List<Comment> GetCommentsSortedByDate() => _comment.GetAll().OrderByDescending(comment => comment.RegisteredTime).ToList();
 
     [HttpPut("upVote/{id}")] 
     public async Task IncrementCommentPoints(string id) 
