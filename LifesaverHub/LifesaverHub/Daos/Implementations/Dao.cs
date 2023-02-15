@@ -25,6 +25,8 @@ public class Dao<T> : IDao<T> where T : BaseEntity
             case UserData userData:
                 await _context.UsersData.AddAsync(userData);
                 break;
+            default:
+                throw new NotSupportedException($"Type '{typeof(T)}' is not supported for Add operation.");
         }
 
         await _context.SaveChangesAsync();
@@ -46,6 +48,8 @@ public class Dao<T> : IDao<T> where T : BaseEntity
             case UserData:
                 _context.UsersData.Remove((Get(id) as UserData)!);
                 break;
+            default:
+                throw new NotSupportedException($"Type '{typeof(T)}' is not supported for Remove operation.");
         }
 
         await _context.SaveChangesAsync();
@@ -67,6 +71,8 @@ public class Dao<T> : IDao<T> where T : BaseEntity
             case UserData userData:
                 _context.UsersData.Update(userData);
                 break;
+            default:
+                throw new NotSupportedException($"Type '{typeof(T)}' is not supported for Update operation.");
         }
 
         await _context.SaveChangesAsync();
@@ -82,7 +88,7 @@ public class Dao<T> : IDao<T> where T : BaseEntity
             .FirstOrDefaultAsync(category => category.Id.ToString() == id).Result as T)!,
         var value when value == typeof(UserData) => (_context.UsersData
             .FirstOrDefaultAsync(category => category.Id.ToString() == id).Result as T)!,
-        _ => throw new ArgumentOutOfRangeException()
+        _ => throw new NotSupportedException($"Type '{typeof(T)}' is not supported for Get operation.")
     };
 
     public List<T> GetAll() => typeof(T) switch

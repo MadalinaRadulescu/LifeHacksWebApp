@@ -1,5 +1,6 @@
 ﻿using LifesaverHub.Data;
 using LifesaverHub.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LifesaverHub.Daos.Implementations;
 
@@ -10,5 +11,5 @@ public class LifeHackDao : DetailedDao<LifeHack>, ILifeHackDao
     public LifeHackDao(DatabaseContext context) : base(context) => _context = context;
 
     public List<LifeHack> GetByCategory(int categoryId) =>
-        _context.LifeHacks.Where(lifeHack => lifeHack.categoriesId.Contains(categoryId)).ToList();
+        _context.LifeHacks.Where(lifeHack => lifeHack.categoriesId.Contains(categoryId)).ToListAsync().Result;
 }

@@ -20,16 +20,26 @@ public class DetailedDao<T> : Dao<T>, IDetailedDao<T> where T : DetailedBaseEnti
 
     public async Task IncreasePoints(string id)
     {
+        if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
+        
         var dao = new Dao<T>(_context);
         var elem = dao.Get(id);
+
+        if (elem == null) throw new ArgumentException($"Element with ID {id} does not exist.");
+        
         elem.Points++;
         await _context.SaveChangesAsync();
     }
 
     public async Task DecreasePoints(string id)
     {
+        if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
+
         var dao = new Dao<T>(_context);
         var elem = dao.Get(id);
+
+        if (elem == null) throw new ArgumentException($"Element with ID {id} does not exist.");
+        
         elem.Points--;
         await _context.SaveChangesAsync();
     }
