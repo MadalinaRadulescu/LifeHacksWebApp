@@ -19,7 +19,7 @@ const LifeHack = () => {
     if (!lifeHack) {
         return <div>Loading...</div>;
     }
-
+    
     return (<div>
         <h1 className="PageTitle">Life Saver Hub</h1>
                 <div key={lifeHack.id}>

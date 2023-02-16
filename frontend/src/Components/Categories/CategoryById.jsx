@@ -7,7 +7,7 @@ export function CategoryById({id}) {
         fetch(`https://localhost:44330/category/${id}`)
             .then(response => response.json())
             .then(data => setCategory(data))
-            .catch(error => console.error(error));
+            .catch(error => console.log(error));
     }, [id]);
 
     if (!category) {

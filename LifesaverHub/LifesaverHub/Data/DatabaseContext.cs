@@ -86,14 +86,14 @@ public class DatabaseContext : IdentityDbContext
                 Id = 1,
                 Text = "That actually save my cookies!",
                 UserId = "0",
-                LifeHackId = 4
+                LifeHackId = 5
             },
             new Comment
             {
                 Id = 2,
                 Text = "Why should i want to do that???",
                 UserId = "0",
-                LifeHackId = 3,
+                LifeHackId = 4,
                 Points = 5
             },
             new Comment
@@ -101,7 +101,7 @@ public class DatabaseContext : IdentityDbContext
                 Id = 3,
                 Text = "Boring",
                 UserId = "1",
-                LifeHackId = 0,
+                LifeHackId = 1,
                 Points = -5
             }
         };

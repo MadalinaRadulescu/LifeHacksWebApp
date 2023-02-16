@@ -61,7 +61,7 @@ namespace LifesaverHub.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    RegistredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()")
+                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()")
                 },
                 constraints: table =>
                 {
@@ -76,7 +76,7 @@ namespace LifesaverHub.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Text = table.Column<string>(type: "text", nullable: false),
                     LifeHackId = table.Column<long>(type: "bigint", nullable: false),
-                    RegistredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
+                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
                     Points = table.Column<long>(type: "bigint", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -96,7 +96,7 @@ namespace LifesaverHub.Migrations
                     PhotoName = table.Column<string>(type: "text", nullable: false),
                     Link = table.Column<string>(type: "text", nullable: false),
                     categoriesId = table.Column<List<long>>(type: "bigint[]", nullable: false),
-                    RegistredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
+                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
                     Points = table.Column<long>(type: "bigint", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -122,7 +122,7 @@ namespace LifesaverHub.Migrations
                     City = table.Column<string>(type: "text", nullable: false),
                     Country = table.Column<string>(type: "text", nullable: false),
                     ZipCode = table.Column<string>(type: "text", nullable: false),
-                    RegistredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
+                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
                     Points = table.Column<long>(type: "bigint", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -253,9 +253,9 @@ namespace LifesaverHub.Migrations
                 columns: new[] { "Id", "LifeHackId", "Points", "Text", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 4L, 0L, "That actually save my cookies!", "0" },
-                    { 2, 3L, 5L, "Why should i want to do that???", "0" },
-                    { 3, 0L, -5L, "Boring", "1" }
+                    { 1, 5L, 0L, "That actually save my cookies!", "0" },
+                    { 2, 4L, 5L, "Why should i want to do that???", "0" },
+                    { 3, 1L, -5L, "Boring", "1" }
                 });
 
             migrationBuilder.InsertData(

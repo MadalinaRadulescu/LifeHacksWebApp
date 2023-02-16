@@ -49,25 +49,25 @@ namespace LifesaverHub.Migrations
                         {
                             Id = 1,
                             Name = "Food",
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             Name = "Home",
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             Name = "Tech",
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
                             Name = "Funny",
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -106,27 +106,27 @@ namespace LifesaverHub.Migrations
                         new
                         {
                             Id = 1,
-                            LifeHackId = 4L,
+                            LifeHackId = 5L,
                             Points = 0L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "That actually save my cookies!",
                             UserId = "0"
                         },
                         new
                         {
                             Id = 2,
-                            LifeHackId = 3L,
+                            LifeHackId = 4L,
                             Points = 5L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "Why should i want to do that???",
                             UserId = "0"
                         },
                         new
                         {
                             Id = 3,
-                            LifeHackId = 0L,
+                            LifeHackId = 1L,
                             Points = -5L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Text = "Boring",
                             UserId = "1"
                         });
@@ -184,7 +184,7 @@ namespace LifesaverHub.Migrations
                             Link = "",
                             PhotoName = "strawberries and the straw",
                             Points = 27L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "How to remove the steam from the strawberries?",
                             UserId = "0",
                             categoriesId = new List<long> { 1L }
@@ -196,7 +196,7 @@ namespace LifesaverHub.Migrations
                             Link = "",
                             PhotoName = "chips and hanger",
                             Points = 0L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "How to properly close a bag of chips?",
                             UserId = "0",
                             categoriesId = new List<long> { 1L }
@@ -208,7 +208,7 @@ namespace LifesaverHub.Migrations
                             Link = "",
                             PhotoName = "",
                             Points = 12L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Pasta Lighter",
                             UserId = "0",
                             categoriesId = new List<long> { 2L }
@@ -220,7 +220,7 @@ namespace LifesaverHub.Migrations
                             Link = "https://www.boredpanda.com/blog/wp-content/org_uploads/2013/01/life-hacks-36.gif",
                             PhotoName = "",
                             Points = -43L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Fastest way to catch the hair in the tail",
                             UserId = "1",
                             categoriesId = new List<long> { 4L }
@@ -232,7 +232,7 @@ namespace LifesaverHub.Migrations
                             Link = "",
                             PhotoName = "cupcakes and rice",
                             Points = 25L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Useful tip for baking cupcakes",
                             UserId = "1",
                             categoriesId = new List<long> { 1L }
@@ -320,7 +320,7 @@ namespace LifesaverHub.Migrations
                             ExpiryYear = 25,
                             PhoneNumber = "5555555555",
                             Points = 0L,
-                            RegistredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RegisteredTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = "0",
                             ZipCode = "1234"
                         });

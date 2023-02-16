@@ -8,7 +8,7 @@ export function CommentByLifeHack({id}) {
         fetch(`https://localhost:44330/comment/lifeHack/${id}`)
             .then(response => response.json())
             .then(data => setComments(data))
-            .catch(error => console.error(error));
+            .catch(error => console.log(error));
     }, [id]);
 
     if (!comments) {
