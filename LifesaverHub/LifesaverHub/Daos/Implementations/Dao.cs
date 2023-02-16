@@ -9,7 +9,7 @@ public class Dao<T> : IDao<T> where T : BaseEntity
     private readonly DatabaseContext _context;
     public Dao(DatabaseContext context) => _context = context;
 
-    public async Task Add(T element)
+    public async Task<int> Add(T element)
     {
         switch (element)
         {
@@ -30,6 +30,8 @@ public class Dao<T> : IDao<T> where T : BaseEntity
         }
 
         await _context.SaveChangesAsync();
+
+        return element.Id;
     }
 
     public async Task Remove(string id)

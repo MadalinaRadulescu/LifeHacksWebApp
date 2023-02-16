@@ -10,7 +10,7 @@ public interface IDao<T>
     /// This method supports the following types of elements: Category, Comment, LifeHack, and UserData. If the type of the element is not supported, an exception will be thrown.
     /// </remarks>
     /// <exception cref="NotSupportedException">Thrown if the element type is not supported.</exception>
-    Task Add(T element);
+    Task<int> Add(T element);
     
     /// <summary>
     /// Removes an element of the specified type from the table using the element's ID.

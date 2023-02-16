@@ -6,7 +6,6 @@ import {GetUserName} from "../Components/Users/GetUserName";
 
 const LifeHack = () => {
     const id = useParams().LifeHackId;
-    document.title = "Life Saver Hub"
     const [lifeHack, setLifeHack] = useState(null);
 
     useEffect(() => {
@@ -20,11 +19,12 @@ const LifeHack = () => {
         return <div>Loading...</div>;
     }
     
+    document.title = lifeHack.title;
+
     return (<div>
-        <h1 className="PageTitle">Life Saver Hub</h1>
+        <h1 className="PageTitle">{lifeHack.title}</h1>
                 <div key={lifeHack.id}>
                     <br />
-                    <h2>{lifeHack.title}</h2>
                     {lifeHack.photoName !== "" &&
                         <img src={`data:image/png;base64,${lifeHack.photoName}`} alt={lifeHack.photoName} />
                     }

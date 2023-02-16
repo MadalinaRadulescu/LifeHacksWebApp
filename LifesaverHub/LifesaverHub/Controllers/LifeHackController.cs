@@ -22,7 +22,7 @@ public class LifeHackController : Controller
     public LifeHack GetLifeHack(string id) => _lifeHack.Get(id);
 
     [HttpPost("add")]
-    public async Task AddLifeHack([FromBody] LifeHack lifeHack) => await _lifeHack.Add(lifeHack);
+    public async Task<int> AddLifeHack([FromBody] LifeHack lifeHack) => await _lifeHack.Add(lifeHack);
     
     [HttpDelete("remove/{id}")]
     public async Task RemoveLifeHack(string id) => await _lifeHack.Remove(id);
