@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {CategoryById} from "../Components/Categories/CategoryById";
 import {GetUserName} from "../Components/Users/GetUserName";
 
-const Home = () => {
+const AllLifeHacks = () => {
     document.title = "Life Saver Hub"
     const [lifeHacks, setLifeHacks] = useState(null);
 
@@ -44,4 +44,4 @@ const Home = () => {
                 </div>
             </div>);
 };
-export default Home;
+export default AllLifeHacks;

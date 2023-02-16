@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LifesaverHub.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230216074959_InitialCreate")]
+    [Migration("20230216165630_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

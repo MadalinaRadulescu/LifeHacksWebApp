@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { redirect, useNavigate} from "react-router-dom";
-import Home from "../Home"
+import Home from "../Home/Home"
 import styles from "./styles.module.scss"
 
 

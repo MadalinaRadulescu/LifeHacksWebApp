@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+PqZKkXp+PUtvBWmwIi+bUFKGSKMG4G8eIeJmrFXsg394v8lmnr+VrWEkIC/rK73Dd5ctMQtQeS+ZKI0eU5hiw==",
+  "dgSpecHash": "qXwFSziQtMraqCAzFi0cZiUdctFOBt+SVrLzD+nnn8Nb+10CRrNN5Iaf+CTJ4jKluf0RVHmacRdEgXZ/nRCo0w==",
   "success": true,
   "projectFilePath": "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\LifesaverHub.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\Catta\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.2\\microsoft.entityframeworkcore.design.7.0.2.nupkg.sha512",
     "C:\\Users\\Catta\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.2\\microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
     "C:\\Users\\Catta\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.2\\microsoft.entityframeworkcore.sqlserver.7.0.2.nupkg.sha512",
+    "C:\\Users\\Catta\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.2\\microsoft.entityframeworkcore.tools.7.0.2.nupkg.sha512",
     "C:\\Users\\Catta\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Catta\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Catta\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",

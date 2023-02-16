@@ -2,7 +2,7 @@
 import {Navigate} from 'react-router-dom';
 import Resizer from "react-image-file-resizer";
 
-const AddLIfeHack = () => {
+const AddLifeHack = () => {
     document.title = "Add Life Hack";
     
     const [image, setImage] = useState(null);
@@ -87,4 +87,4 @@ const AddLIfeHack = () => {
         <button type="submit">Submit</button>
     </form>)
 };
-export default AddLIfeHack;
+export default AddLifeHack;

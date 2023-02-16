@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
-import logo from "../../images/LifeSaverHubLogo.png";
-import { Link } from "react-router-dom";
+import logo from "../../Images/LifeSaverHubLogo.png";
+import {Link, useNavigate} from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 
@@ -11,7 +11,7 @@ export default function Navbar() {
   const outside = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:5260/category/all")
+    fetch("https://localhost:44330/category/all")
       .then((response) => response.json())
       .then((data) => setCategoriesData(data));
   }, []);
@@ -26,6 +26,22 @@ export default function Navbar() {
     setIsDropDown(!isDropDown);
   };
 
+  let navigate = useNavigate();
+  const addLifeHack = () =>{
+    let path = `/addLifeHack`;
+    navigate(path);
+  }
+
+  const register = () =>{
+    let path = `/Auth/register`;
+    navigate(path);
+  }
+
+  const logIn = () =>{
+    let path = `/Auth/login`;
+    navigate(path);
+  }
+
   return (
     <>
       <ul className={styles.navbar}>
@@ -38,7 +54,13 @@ export default function Navbar() {
           <li onClick={handleDropdown}>Categories</li>
         </div>
         <div className={styles.overflow}>
-          <li onClick={handleDropdown}>Categories</li>
+          <li onClick={addLifeHack}>Add</li>
+        </div>
+        <div className={styles.overflow}>
+          <li onClick={register}>Register</li>
+        </div>
+        <div className={styles.overflow}>
+          <li onClick={logIn}>Log In</li>
         </div>
         <label>
           <input
