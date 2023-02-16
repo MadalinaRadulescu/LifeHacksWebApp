@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+
+.home_header {
+  display: flex;
+  align-items: center;
+  background-color: #123c69;
+  padding: 0 0 100px 140px;
+
+  .home_header_text {
+    @keyframes slideInLeft {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-name: slideInLeft;
+  }
+
+  div {
+    width: 40%;
+    margin-bottom: 50px;
+  }
+  button,
+  h1,
+  p {
+    color: #eee2dc;
+    font-family: "Ubuntu", sans-serif;
+  }
+  button {
+    background-color: #ac3b61;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  button:hover{
+    text-decoration: underline;
+    font-size: 18px;
+  }
+  .home_image {
+    width: 55%;
+    @keyframes slideInRight {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+  
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+      animation-name: slideInRight;
+  }
+  h1 {
+    font-size: 50px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.test{
+    height: 900px;
+    color: pink;
+}
