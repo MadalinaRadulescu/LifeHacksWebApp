@@ -23,8 +23,6 @@ const Home = () => {
     });
   };
 
-
-
   if (!lifeHacks) {
     return <div>Loading...</div>;
   }
@@ -33,7 +31,7 @@ const Home = () => {
     <div>
       <div className={styles.home_header}>
         <div className={styles.home_header_text}>
-          <h1>Ue si mie si tie</h1>
+          <h1>Lorem ipsum dolor</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -48,13 +46,14 @@ const Home = () => {
               handleScroll(clickScroll.current);
             }}
           >
-            Haide mai aproape
+            Lorem ipsum dolor sit amet
           </button>
         </div>
-
         <img src={image} alt="" className={styles.home_image} />
       </div>
-      <div className={styles.test} ref={clickScroll}>
+      <div className={styles.color_fill} ref={clickScroll} />
+
+      <div className={styles.test}>
         <p>Am 3l ei</p>
         <div>
           {lifeHacks?.map((item) => (

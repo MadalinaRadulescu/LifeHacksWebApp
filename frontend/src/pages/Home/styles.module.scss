@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   background-color: #123c69;
-  padding: 0 0 100px 140px;
+  padding: 60px 0 100px 140px;
 
   .home_header_text {
     @keyframes slideInLeft {
@@ -40,27 +40,29 @@
     border-radius: 5px;
     margin-top: 20px;
     font-size: 16px;
+    cursor: pointer;
   }
-  button:hover{
+
+  button:hover {
     text-decoration: underline;
     font-size: 18px;
   }
   .home_image {
     width: 55%;
     @keyframes slideInRight {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(0);
-        }
+      0% {
+        transform: translateX(100%);
       }
-  
-      animation-duration: 2s;
-      animation-timing-function: ease-in-out;
-      animation-delay: 0s;
-      animation-iteration-count: 1;
-      animation-name: slideInRight;
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-name: slideInRight;
   }
   h1 {
     font-size: 50px;
@@ -70,7 +72,8 @@
   }
 }
 
-.test{
-    height: 900px;
-    color: pink;
+.color_fill {
+  background-color: #123c69;
+  height: 70px;
+  width: 100%;
 }
