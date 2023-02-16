@@ -6,6 +6,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import LifeHack from "./Pages/LifeHack";
 import Login from "./Pages/Login/Login";
 import AddLIfeHack from "./Pages/AddLIfeHack";
+import Register from "./Pages/Register/Register"
 
 
 const App = () => {
@@ -18,6 +19,8 @@ const App = () => {
             <Route path="/Auth/login" element={<Login/>} />
             <Route path="/lifeHack/:LifeHackId" element={<LifeHack/>} />
             <Route path="/addLIfeHack" element={<AddLIfeHack/>} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/Auth/register" element={<Register/>} />
         </Routes>
         <Layout />
       </div>

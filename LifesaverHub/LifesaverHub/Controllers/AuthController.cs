@@ -17,15 +17,17 @@ public class AuthController : ControllerBase
    
     // /api/auth/register
     [HttpPost("register")]
-    public async Task<IActionResult> RegisterAsync([FromBody]RegisterViewModel model)
+    public async Task<IActionResult> RegisterAsync([FromForm]RegisterViewModel model)
     {
         if (ModelState.IsValid)
         {
             var result = await _userService.RegisterUserAsync(model);
             if (result.IsSuccess)
                 return Ok(result); // Status code: 200
-            return BadRequest(result);
+            // return Ok(result);
         }
+        
+        
 
         return BadRequest("Some properties are not valid"); //Status code: 400
     }
