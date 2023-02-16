@@ -2,9 +2,9 @@ import {Route, Routes} from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
-import LifeHack from "./Pages/LifeHack";
+import LifeHack from "./Pages/LifeHacks/LifeHack";
 import Login from "./Pages/Login/Login";
-import AddLifeHack from "./Pages/AddLifeHack";
+import AddLifeHack from "./Pages/LifeHacks/AddLifeHack";
 import Register from "./Pages/Register/Register"
 import "./App.css";
 import Footer from "./Components/Footer/Footer";

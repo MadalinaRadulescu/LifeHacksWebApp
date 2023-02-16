@@ -2,5 +2,5 @@
 
 
 export default function Footer() {
-    return(<>footer test</>)
+    return(<footer>© 2023 LifeSaverHub</footer>)
 }
