@@ -21,9 +21,9 @@ const AllLifeHacks = () => {
                         <img className={styles.customImg} src={Placeholder} alt="Placeholder"/>
                 </div>
                 <div className={styles.right}>
-                    <h1>Loading...</h1>
+                    <h1 className={styles.LHTitle}>Loading...</h1>
                     <div className={styles.separator}/>
-                    <p>Loading...</p>
+                    <p className={styles.paragraph}>Loading...</p>
                 </div>
                 <h5>25:61</h5>
                 <h6>30 February</h6>
@@ -45,12 +45,12 @@ const AllLifeHacks = () => {
                             <img className={styles.customImg} src={Placeholder} alt="Placeholder"/>}
                     </div>
                     <div className={styles.right}>
-                        <h1>{lifeHack.title}</h1>
+                        <h1 className={styles.LHTitle}>{lifeHack.title}</h1>
                         <div className={styles.separator}/>
-                        <p>{lifeHack.description}</p>
+                        <p className={styles.paragraph}>{lifeHack.description}</p>
                         {lifeHack.link !== '' && <>
                             <div className={styles.separator}/>
-                            <Link to={lifeHack.link}>{lifeHack.link}</Link></>}
+                            <Link to={lifeHack.link} className={styles.paragraph}>{lifeHack.link}</Link></>}
                     </div>
                     <h5>{new Date(lifeHack.registeredTime).toLocaleTimeString('en-US', {
                         hour12: false, hour: '2-digit', minute: '2-digit'

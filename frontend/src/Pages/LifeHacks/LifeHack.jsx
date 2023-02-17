@@ -19,7 +19,20 @@ const LifeHack = () => {
     }, []);
 
     if (!lifeHack) {
-        return <div>Loading...</div>;
+        return (
+            <div className={styles.card}>
+                <div className={styles.thumbnail}>
+                    <img className={styles.customImg} src={Placeholder} alt="Placeholder"/>
+                </div>
+                <div className={styles.right}>
+                    <h1 className={styles.LHTitle}>Loading...</h1>
+                    <div className={styles.separator}/>
+                    <p className={styles.paragraph}>Loading...</p>
+                </div>
+                <h5>25:61</h5>
+                <h6>30 February</h6>
+                <div className={styles.fab}><img className={styles.customImg} src={information} alt="Information"/></div>
+            </div>);
     }
 
     document.title = lifeHack.title;
@@ -35,12 +48,12 @@ const LifeHack = () => {
                     <img className={styles.customImg} src={Placeholder} alt="Placeholder"/>}
             </div>
             <div className={styles.right}>
-                <h1>{lifeHack.title}</h1>
+                <h1 className={styles.LHTitle}>{lifeHack.title}</h1>
                 <div className={styles.separator}/>
-                <p>{lifeHack.description}</p>
+                <p className={styles.paragraph}>{lifeHack.description}</p>
                 {lifeHack.link !== '' && <>
                     <div className={styles.separator}/>
-                    <Link to={lifeHack.link}>{lifeHack.link}</Link></>}
+                    <Link to={lifeHack.link} className={styles.paragraph}>{lifeHack.link}</Link></>}
             </div>
             <h5>{new Date(lifeHack.registeredTime).toLocaleTimeString('en-US', {
                 hour12: false, hour: '2-digit', minute: '2-digit'
@@ -56,15 +69,15 @@ const LifeHack = () => {
         {/*    {lifeHack.photoName !== "" &&*/}
         {/*        <img src={`data:image/png;base64,${lifeHack.photoName}`} alt={lifeHack.photoName} />*/}
         {/*    }*/}
-        {/*    <p>{lifeHack.description}</p>*/}
+        {/*    <p className={styles.paragraph}>{lifeHack.description}</p>*/}
         {/*    <Link to={lifeHack.link}>{lifeHack.link}</Link>*/}
         {/*    {lifeHack.categoriesId.map(categoryId => (*/}
         {/*        <div key={categoryId}>*/}
         {/*            <CategoryById id={categoryId}/>*/}
         {/*        </div>*/}
         {/*    ))}*/}
-        {/*    <p>Published at: {lifeHack.registredTime}</p>*/}
-        {/*    <p>VoteCount: {lifeHack.points}</p>*/}
+        {/*    <p className={styles.paragraph}>Published at: {lifeHack.registredTime}</p>*/}
+        {/*    <p className={styles.paragraph}>VoteCount: {lifeHack.points}</p>*/}
         {/*</div>*/}
         <CommentByLifeHack id={lifeHack.id}/>
         <GetUserName id={lifeHack.userId}/>

@@ -11,6 +11,7 @@ public class Dao<T> : IDao<T> where T : BaseEntity
 
     public async Task<int> Add(T element)
     {
+        Console.WriteLine(element);
         switch (element)
         {
             case Category category:

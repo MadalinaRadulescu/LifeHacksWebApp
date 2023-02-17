@@ -47,6 +47,7 @@ const Home = () => {
           </button>
         </div>
         <img src={image} alt="" className={styles.home_image} />
+        
       </div>
       <div className={styles.color_fill} ref={clickScroll} />
 

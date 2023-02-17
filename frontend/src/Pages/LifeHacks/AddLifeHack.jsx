@@ -10,8 +10,8 @@ const AddLifeHack = () => {
     const [lifeHack, setLifeHack] = useState({
         title: '',
         description: '',
-        userId: '',         //*** To Do *** take id from connected user
-        categoriesId: [],
+        userId: '0',         //*** To Do *** take id from connected user
+        categoriesId: [1],
         photoName: image && '',
         link: ''
     });
@@ -55,7 +55,7 @@ const AddLifeHack = () => {
         return (<Navigate replace to={"/lifeHack/" + result} />)
     }
 
-    return (<form onSubmit={handleSubmit}>
+    return (<form onSubmit={handleSubmit} style={{marginTop: "300px", textAlign: "center"}}>
         <label>
             Title:
             <textarea

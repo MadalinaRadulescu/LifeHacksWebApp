@@ -53,7 +53,7 @@ const Login = ()=>{
     return (
         <>
         <div className={styles.form}>
-            <h1>Log in</h1>
+            <h1 className={styles.logInTitle}>Log in</h1>
             <br/>
             <form onSubmit={handleSubmit}>
                 
