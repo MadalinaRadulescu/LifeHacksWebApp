@@ -1,10 +1,15 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
+using Azure;
 using LifesaverHub.Models;
 using LifesaverHub.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+
 
 namespace LifesaverHub.Services;
 
@@ -97,11 +102,19 @@ public class UserService : IUserService
             expires: DateTime.Now.AddDays(30),
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));
 
+        
+
         string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
+        
+        // Response.Cookies.Append("jwt", tokenAsString, new CookieOptions
+        //     {
+        //         HttpOnly = true
+        //     }
+        // );
         
         return new UserManagerResponse()
         {
-            Message = "You have logged in!",
+            Message = tokenAsString,
             IsSuccess = true,
             ExpireDate = token.ValidTo,
         };
