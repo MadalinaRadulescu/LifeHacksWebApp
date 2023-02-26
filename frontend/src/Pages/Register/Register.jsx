@@ -13,7 +13,7 @@ const Register = () => {
     
     const fetchData = async(form)=>{
         console.log(form.get("email"), " din fetch!!!!!")
-        let response = await fetch("http://localhost:5260/api/Auth/register", {
+        let response = await fetch("https://localhost:44330/api/Auth/register", {
             method: "POST",
             headers: {
             
@@ -67,7 +67,7 @@ const Register = () => {
     return(
         <>
         <div className={styles.form}>
-            <h1>Register</h1>
+            <h1 className={styles.registerTitle}>Register</h1>
             <br/>
             <form onSubmit={handleSubmit}>
                 

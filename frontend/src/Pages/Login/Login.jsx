@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { redirect, useNavigate} from "react-router-dom";
-import Home from "../Home"
+import Home from "../Home/Home"
 import styles from "./styles.module.scss"
 
 
@@ -10,7 +10,7 @@ const Login = ()=>{
     
     const fetchData = async(form) =>{
         console.log(form.get("email"), " din fetch!!!!!")
-        let response = await  fetch("http://localhost:5260/api/Auth/login",{
+        let response = await  fetch("https://localhost:44330/api/Auth/login",{
             method: "POST",
             headers: {
                 'credentials': "include",
@@ -53,7 +53,7 @@ const Login = ()=>{
     return (
         <>
         <div className={styles.form}>
-            <h1>Log in</h1>
+            <h1 className={styles.logInTitle}>Log in</h1>
             <br/>
             <form onSubmit={handleSubmit}>
                 

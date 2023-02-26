@@ -6,5 +6,5 @@ public abstract class BaseEntity
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
-    public DateTime RegistredTime { get; set; }
+    public DateTime RegisteredTime { get; set; }
 }

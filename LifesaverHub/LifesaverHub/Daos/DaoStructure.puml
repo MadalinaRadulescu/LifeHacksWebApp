@@ -1,0 +1,84 @@
+@startuml
+class DatabaseContext
+{
+    + LifeHacks : DbSet<LifeHack>
+    + Comments: DbSet<Comment>
+    + Categories : DbSet<Category>
+    + UsersData : DbSet<UserData>
+}
+
+interface IBaseDao<T>
+{
+    Add(element : T) : Task 
+    Remove(id : int) : Task 
+    Update(element : T) : Task
+    Get(id : int) : T 
+    GetAll() : List<T> 
+}
+
+interface IDetailedBaseDao<T>
+{
+    GetByUserId(userId : int) : List<T>
+    IncreasePoints(id : int) : Task
+    DecreasePoints(id : int) : Task
+}
+
+interface ICategoryDao extends IBaseDao
+{
+}
+
+interface ICommentDao extends IBaseDao, IDetailedBaseDao
+{
+}
+
+interface IUserDataDao extends IBaseDao, IDetailedBaseDao
+{
+}
+
+interface ILifeHackDao extends IBaseDao, IDetailedBaseDao
+{
+    GetByCategory(categoryId : int) : List<LifeHack>
+}
+
+class CategoryDao extends ICategoryDao, BaseDao
+{
+}
+
+class CommentDao extends ICommentDao, DetailedBaseDao
+{
+}
+
+class UserDataDao extends IUserDataDao, DetailedBaseDao
+{
+}
+
+class LifeHackDao extends ILifeHackDao, DetailedBaseDao
+{
+    GetByCategory(categoryId : int) : List<LifeHack>
+}
+
+class BaseDao<T> extends IBaseDao
+{
+    Add(element : T) : Task 
+    Remove(id : int) : Task 
+    Update(element : T) : Task
+    Get(id : int) : T 
+    GetAll() : List<T> 
+}
+
+class DetailedBaseDao<T> extends IDetailedBaseDao, BaseDao
+{
+    GetByUserId(userId : int) : List<Comment/LifeHack/UserData>
+    IncreasePoints(id : int) : Task
+    DecreasePoints(id : int) : Task
+}
+
+DetailedBaseDao --> DatabaseContext
+BaseDao --> DatabaseContext
+CategoryDao -> DatabaseContext
+CommentDao ---> DatabaseContext
+UserDataDao --> DatabaseContext 
+LifeHackDao --> DatabaseContext
+
+
+@enduml

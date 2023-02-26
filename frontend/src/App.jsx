@@ -1,24 +1,32 @@
 import {Route, Routes} from "react-router-dom";
-import Home from "./Pages/Home";
-import Layout from "./Pages/Layout";
+import Home from "./Pages/Home/Home";
 import React from "react";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
+import LifeHack from "./Pages/LifeHacks/LifeHack";
 import Login from "./Pages/Login/Login";
+import AddLifeHack from "./Pages/LifeHacks/AddLifeHack";
 import Register from "./Pages/Register/Register"
-
+import "./App.css";
+import Footer from "./Components/Footer/Footer";
+import Categories from "./Pages/Categories/Categories";
 
 const App = () => {
-    
   return (
-      <div className="App">
-          <Navbar/>
+    <>
+      <Navbar />
+      <div>
         <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/Auth/login" element={<Login/>}></Route>
-            <Route path="/Auth/register" element={<Register/>}></Route>
+            <Route path="/" element={<Home/>} />
+            <Route path="/Auth/login" element={<Login/>} />
+            <Route path="/lifeHack/:LifeHackId" element={<LifeHack/>} />
+            <Route path="/addLifeHack" element={<AddLifeHack/>} />
+            <Route path="/Auth/register" element={<Register/>} />
+          <Route path="/category" element={<Categories />} />
         </Routes>
-        <Layout />
       </div>
+      <br />
+      <Footer />
+    </>
   );
 };
 

@@ -2,18 +2,12 @@
 
 namespace LifesaverHub.Daos;
 
-public interface ILifeHackDao : ISpecificDao<LifeHack>
+public interface ILifeHackDao : IDetailedDao<LifeHack>, IDao<LifeHack>
 {
-    /// <summary>Get all LifeHacks from the table based on the category.</summary>
-    /// <param name="categoryId">Id of the category.</param>
-    /// <returns>List of LifeHacks based on the desired category.</returns>
+    /// <summary>
+    /// Retrieves a list of life hacks by the specified category ID.
+    /// </summary>
+    /// <param name="categoryId">The ID of the category to search.</param>
+    /// <returns>A list of life hacks that belong to the specified category.</returns>
     List<LifeHack> GetByCategory(int categoryId);
-    
-    /// <summary>Update points number by +1.</summary>
-    /// <param name="id">Id of the element from the table.</param>
-    Task IncreasePoints(int id);
-    
-    /// <summary>Update points number by -1.</summary>
-    /// <param name="id">Id of the element from the table.</param>
-    Task DecreasePoints(int id);
 }

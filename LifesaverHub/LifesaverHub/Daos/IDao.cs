@@ -1,25 +1,44 @@
 ﻿namespace LifesaverHub.Daos;
-
 public interface IDao<T>
 {
-    /// <summary>Add a new element to table.</summary>
-    /// <param name="element">The element that u need to add.</param>
-    Task Add(T element);
+    /// <summary>
+    /// Adds a new element of type T to a table.
+    /// </summary>
+    /// <param name="element">The new element to add to the table.</param>
+    /// <returns>A task that represents the asynchronous operation of adding the element to the table and saving changes to the database.</returns>
+    /// <remarks>
+    /// This method supports the following types of elements: Category, Comment, LifeHack, and UserData. If the type of the element is not supported, an exception will be thrown.
+    /// </remarks>
+    /// <exception cref="NotSupportedException">Thrown if the element type is not supported.</exception>
+    Task<int> Add(T element);
     
-    /// <summary>Remove an element from the table.</summary>
-    /// <param name="id">Id of the element that need to be removed.</param>
-    Task Remove(int id);
+    /// <summary>
+    /// Removes an element of the specified type from the table using the element's ID.
+    /// </summary>
+    /// <param name="id">The ID of the element to be removed.</param>
+    /// <returns>A task that represents the asynchronous operation of removing the element from the table and saving changes to the database.</returns>
+    /// <exception cref="NotSupportedException">Thrown if the element type is not supported.</exception>
+    Task Remove(string id);
     
-    /// <summary>Update an element from the table.</summary>
-    /// <param name="element">Replacing element with the same id as the old one.</param>
+    /// <summary>
+    /// Updates an element in the table.
+    /// </summary>
+    /// <param name="element">The updated element to be saved in the table.</param>
+    /// <returns>A task that represents the asynchronous operation of updating the element in the table and saving changes to the database.</returns>
+    /// <exception cref="NotSupportedException">Thrown if the type of the element is not supported.</exception>
     Task Update(T element);
     
-    /// <summary>Get an element from the table based on its id.</summary>
-    /// <param name="id">Id of the element.</param>
-    /// <returns>Element from the table that match the given id</returns>
-    T Get(int id);
+    /// <summary>
+    /// Gets the element with the specified ID from the table.
+    /// </summary>
+    /// <param name="id">The ID of the element to retrieve.</param>
+    /// <returns>The element with the specified ID.</returns>
+    /// <exception cref="NotSupportedException">Thrown if the element type is not supported.</exception>
+    T Get(string id);
     
-    /// <summary> Get all elements from the table. </summary>
-    /// <returns> A list of all elements from the table. </returns>
+    /// <summary>
+    /// Retrieves all elements of the specified type from the table.
+    /// </summary>
+    /// <returns>A list of all elements of the specified type in the table.</returns>
     List<T> GetAll();
 }
