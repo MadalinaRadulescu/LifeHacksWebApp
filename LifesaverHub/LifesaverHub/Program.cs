@@ -22,7 +22,7 @@ builder.Services.AddDbContext<DatabaseContext>(option =>
     option.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
 });
 
-// builder.Services.AddIdentity<IUserService, UserService>()
+
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -50,18 +50,28 @@ builder.Services.AddAuthentication(auth =>
 });
 builder.Services.AddScoped<IUserService, UserService>();
 
+
 builder.Services.AddAuthorization(); //TODO
+
+// builder.Services.AddCors();
+
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("CorsPolicy", policy =>
+//     {
+//         policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+//     });
+// });
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("CorsPolicy", policy =>
-    {
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-    });
+    options.AddPolicy("MyPolicy",
+        builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+
 });
 // builder.Services.AddCors(cors=>{ cors.AddPolicy(name:MyAllowSpecificOrigins, policy =>
 // {
-//     policy.WithOrigins("http://localhost:5260/").AllowCredentials().AllowAnyHeader().AllowAnyMethod();
+//     policy.WithOrigins("http://localhost:3000/").AllowCredentials().AllowAnyHeader().AllowAnyMethod();
 // });});
 
 var app = builder.Build();
@@ -75,10 +85,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
-app.UseCors("CorsPolicy");
+app.UseCors("MyPolicy");
 // app.UseCors(opt =>
 // {
-//     opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:5260/");
+//     opt.WithOrigins("http://localhost:3000/")
+//         
+//         .AllowAnyHeader()
+//         .AllowAnyMethod()
+//         .AllowCredentials();
 // });
 
 app.UseRouting();

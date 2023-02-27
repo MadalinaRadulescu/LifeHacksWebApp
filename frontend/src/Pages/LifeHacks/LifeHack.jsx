@@ -1,8 +1,8 @@
 ﻿import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
-import {CategoryById} from "../../Components/Categories/CategoryById";
-import {CommentByLifeHack} from "../../Components/Comments/CommentByLifeHack";
-import {GetUserName} from "../../Components/Users/GetUserName";
+import {CategoryById} from "../../components/Categories/CategoryById";
+import {CommentByLifeHack} from "../../components/Comments/CommentByLifeHack";
+import {GetUserName} from "../../components/Users/GetUserName";
 import styles from "./styles.module.sass";
 import Placeholder from "../../Images/Placeholder.png";
 import information from "../../Images/information.png";
@@ -12,7 +12,7 @@ const LifeHack = () => {
     const [lifeHack, setLifeHack] = useState(null);
 
     useEffect(() => {
-        fetch(`https://localhost:44330/lifeHack/${id}`)
+        fetch(`http://localhost:5260/lifeHack/${id}`)
             .then(response => response.json())
             .then(json => setLifeHack(json))
             .catch(error => console.log(error));

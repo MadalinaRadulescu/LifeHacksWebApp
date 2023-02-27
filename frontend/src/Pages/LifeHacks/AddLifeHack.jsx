@@ -41,7 +41,7 @@ const AddLifeHack = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        fetch('https://localhost:44330/lifeHack/add', {
+        fetch('http://localhost:5260/lifeHack/add', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(lifeHack),

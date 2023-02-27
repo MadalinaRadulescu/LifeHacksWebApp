@@ -102,15 +102,10 @@ public class UserService : IUserService
             expires: DateTime.Now.AddDays(30),
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));
 
-        
+
 
         string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
         
-        // Response.Cookies.Append("jwt", tokenAsString, new CookieOptions
-        //     {
-        //         HttpOnly = true
-        //     }
-        // );
         
         return new UserManagerResponse()
         {

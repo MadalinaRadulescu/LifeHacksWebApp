@@ -11,7 +11,7 @@ export default function Navbar() {
   const outside = useRef(null);
 
   useEffect(() => {
-    fetch("https://localhost:44330/category/all")
+    fetch("http://localhost:5260/category/all")
       .then((response) => response.json())
       .then((data) => setCategoriesData(data));
   }, []);
@@ -42,6 +42,11 @@ export default function Navbar() {
     navigate(path);
   }
 
+  const logOut = () =>{
+    let path = `/Auth/Logout`;
+    navigate(path);
+  }
+
   return (
     <>
       <ul className={styles.navbar}>
@@ -53,6 +58,7 @@ export default function Navbar() {
         <div className={styles.overflow} ref={outside}>
           <li onClick={handleDropdown}>Categories</li>
         </div>
+      
         <div className={styles.overflow}>
           <li onClick={addLifeHack}>Add</li>
         </div>
@@ -61,6 +67,9 @@ export default function Navbar() {
         </div>
         <div className={styles.overflow}>
           <li onClick={logIn}>Log In</li>
+        </div>
+        <div className={styles.overflow}>
+          <li onClick={logOut}>Log Out</li>
         </div>
         <label>
           <input
