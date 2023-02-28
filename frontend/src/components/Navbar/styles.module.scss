@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 .navbar {
-  z-index: 2;
   display: flex;
   list-style-type: none;
   margin: 0;
@@ -43,7 +42,7 @@
 
 .dropdown {
   background-color: #123c69;
-  position: fixed;
+  position: absolute;
   left: 10%;
   top: 50px;
   width: 140px;

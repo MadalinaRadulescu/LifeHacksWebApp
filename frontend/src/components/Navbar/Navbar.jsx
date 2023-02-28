@@ -8,7 +8,6 @@ export default function Navbar() {
   const [isDropDown, setIsDropDown] = useState(false);
   const [categoriesData, setCategoriesData] = useState(null);
   const [searchValue, setSearchValue] = useState("Search");
-  // const [user, setUser] = useState();
   const outside = useRef(null);
 
   useEffect(() => {
