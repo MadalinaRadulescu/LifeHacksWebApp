@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 
+
+
 function useOnClickOutside(ref, handler) {
   useEffect(() => {
     const checkOutsideClick = (event) => {
@@ -17,5 +19,7 @@ function useOnClickOutside(ref, handler) {
     };
   }, [handler, ref]);
 }
+
+
 
 export default useOnClickOutside;

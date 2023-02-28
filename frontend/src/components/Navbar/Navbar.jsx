@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import logo from "../../Images/LifeSaverHubLogo.png";
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 
@@ -8,6 +8,7 @@ export default function Navbar() {
   const [isDropDown, setIsDropDown] = useState(false);
   const [categoriesData, setCategoriesData] = useState(null);
   const [searchValue, setSearchValue] = useState("Search");
+  // const [user, setUser] = useState();
   const outside = useRef(null);
 
   useEffect(() => {
@@ -27,24 +28,52 @@ export default function Navbar() {
   };
 
   let navigate = useNavigate();
-  const addLifeHack = () =>{
+  const addLifeHack = () => {
     let path = `/addLifeHack`;
     navigate(path);
-  }
+  };
 
-  const register = () =>{
+  const register = () => {
     let path = `/Auth/register`;
     navigate(path);
-  }
+  };
 
-  const logIn = () =>{
+  const logIn = () => {
     let path = `/Auth/login`;
     navigate(path);
-  }
+  };
 
-  const logOut = () =>{
+  const logOut = () => {
     let path = `/Auth/Logout`;
     navigate(path);
+  };
+
+  var user = localStorage.getItem("user");
+
+  function LoggedIn() {
+    return (
+      <>
+        <div className={styles.overflow}>
+          <li onClick={addLifeHack}>Add</li>
+        </div>
+        <div className={styles.overflow}>
+          <li onClick={logOut}>Log Out</li>
+        </div>
+      </>
+    );
+  }
+
+  function LoggedOut() {
+    return (
+      <>
+        <div className={styles.overflow}>
+          <li onClick={register}>Register</li>
+        </div>
+        <div className={styles.overflow}>
+          <li onClick={logIn}>Log In</li>
+        </div>
+      </>
+    );
   }
 
   return (
@@ -58,19 +87,15 @@ export default function Navbar() {
         <div className={styles.overflow} ref={outside}>
           <li onClick={handleDropdown}>Categories</li>
         </div>
-      
-        <div className={styles.overflow}>
-          <li onClick={addLifeHack}>Add</li>
-        </div>
-        <div className={styles.overflow}>
+        {user ? <LoggedIn/> : <LoggedOut/>}
+
+        {/* <div className={styles.overflow}>
           <li onClick={register}>Register</li>
         </div>
         <div className={styles.overflow}>
           <li onClick={logIn}>Log In</li>
-        </div>
-        <div className={styles.overflow}>
-          <li onClick={logOut}>Log Out</li>
-        </div>
+        </div> */}
+
         <label>
           <input
             type="text"

@@ -4,6 +4,7 @@ import Home from "../Home/Home"
 import styles from "./styles.module.scss"
 
 
+
 const Login = ()=>{
     let navigate = useNavigate();
     const [user, setUser] = useState();
@@ -24,13 +25,15 @@ const Login = ()=>{
     
         if (response.ok){
             let data = await response.json();
+            localStorage.setItem('user', JSON.stringify(data.isSuccess));
             console.log(data);
             setUser(data);
+            
+            
         }
         
     };
 
-  
     const handleSubmit = (event) =>{
         event.preventDefault();
 
@@ -39,17 +42,17 @@ const Login = ()=>{
         form.append("password",event.target.password.value)
         
         fetchData(form);
+        
        
     };
-    
-        
+ 
     if(user){
         if (user.isSuccess){
             let path = `/`;
             navigate(path);
         }   
-    }
-      
+    };
+
     return (
         <>
         <div className={styles.form}>

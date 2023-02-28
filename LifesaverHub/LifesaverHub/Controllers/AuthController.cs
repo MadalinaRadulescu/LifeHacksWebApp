@@ -27,8 +27,6 @@ public class AuthController : ControllerBase
             // return Ok(result);
         }
         
-        
-
         return BadRequest("Some properties are not valid"); //Status code: 400
     }
     
