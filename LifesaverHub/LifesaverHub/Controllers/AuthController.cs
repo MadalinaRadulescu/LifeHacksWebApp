@@ -27,8 +27,6 @@ public class AuthController : ControllerBase
             // return Ok(result);
         }
         
-        
-
         return BadRequest("Some properties are not valid"); //Status code: 400
     }
     
@@ -38,11 +36,18 @@ public class AuthController : ControllerBase
         if (ModelState.IsValid)
         {
             var result = await _userService.LoginUserAsync(model);
-            // if (result.IsSuccess)
-            //     return Ok(result); // Status code: 200
+            if (result.IsSuccess)
+            {
+                Response.Cookies.Append("jwt", result.Message, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.None
+                }); 
+            }
             return Ok(result);
         }
-
+        
         return Ok(new UserManagerResponse()
         {
             Message = "Email and password required. Password has to be minimum 5 characters and maximum 50!",
@@ -50,5 +55,15 @@ public class AuthController : ControllerBase
         });
 
         // return BadRequest("Some properties are not valid"); //Status code: 400
+    }
+
+    [HttpPost("Logout")]
+    public IActionResult Logout()
+    {
+        Response.Cookies.Delete("jwt");
+        return Ok(new
+        {
+            message = "You are logged out!"
+        });
     }
 }

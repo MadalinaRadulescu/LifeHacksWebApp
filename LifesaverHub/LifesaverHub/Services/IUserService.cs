@@ -1,10 +1,15 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
+using Azure;
 using LifesaverHub.Models;
 using LifesaverHub.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+
 
 namespace LifesaverHub.Services;
 
@@ -69,7 +74,7 @@ public class UserService : IUserService
         {
             return new UserManagerResponse()
             {
-                Message = "There is no user with that email address.",
+                Message = "Invalid email or password!",
                 IsSuccess = false,
             };
         }
@@ -78,7 +83,7 @@ public class UserService : IUserService
         if (!result)
             return new UserManagerResponse()
             {
-                Message = "Invalid password!",
+                Message = "Invalid email or password!",
                 IsSuccess = false,
             };
 
@@ -97,13 +102,18 @@ public class UserService : IUserService
             expires: DateTime.Now.AddDays(30),
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));
 
+
+
         string tokenAsString = new JwtSecurityTokenHandler().WriteToken(token);
+        
         
         return new UserManagerResponse()
         {
-            Message = "You have logged in!",
+            Message = tokenAsString,
             IsSuccess = true,
             ExpireDate = token.ValidTo,
+            UserId = user.Id,
+            UserName = user.Email
         };
 
     }

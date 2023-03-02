@@ -2,33 +2,41 @@ import { useEffect, useState } from "react";
 import { redirect, useNavigate} from "react-router-dom";
 import Home from "../Home/Home"
 import styles from "./styles.module.scss"
+// import {useAtom} from "jotai"
+// import STATE from "../../Store"
+
 
 
 const Login = ()=>{
     let navigate = useNavigate();
+    // const [user, setUser] = useAtom(STATE.USER_DATA);
     const [user, setUser] = useState();
     
     const fetchData = async(form) =>{
         console.log(form.get("email"), " din fetch!!!!!")
-        let response = await  fetch("https://localhost:44330/api/Auth/login",{
+        let response = await  fetch("http://localhost:5260/api/Auth/login",{
             method: "POST",
             headers: {
-                'credentials': "include",
-                'Token': "dummy-token"
+                // "Content-Type": "application/json",
+                // 'credentials': "include",
+                // 'Token': "dummy-token"
                 // DON'T overwrite Content-Type header
             },
+            credentials: "include",
             body: form
         });
     
         if (response.ok){
             let data = await response.json();
             console.log(data);
+            localStorage.setItem('user', data.isSuccess);
             setUser(data);
+            
+            
         }
         
     };
 
-  
     const handleSubmit = (event) =>{
         event.preventDefault();
 
@@ -37,18 +45,16 @@ const Login = ()=>{
         form.append("password",event.target.password.value)
         
         fetchData(form);
-       
+        
     };
     
-        
+ 
     if(user){
         if (user.isSuccess){
             let path = `/`;
             navigate(path);
         }   
-    }
-        
-    
+    };
 
     return (
         <>

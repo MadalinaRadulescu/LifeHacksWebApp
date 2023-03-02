@@ -9,6 +9,7 @@ import Register from "./Pages/Register/Register"
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Categories from "./Pages/Categories/Categories";
+import Logout from "./Pages/Logout/Logout";
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
             <Route path="/lifeHack/:LifeHackId" element={<LifeHack/>} />
             <Route path="/addLifeHack" element={<AddLifeHack/>} />
             <Route path="/Auth/register" element={<Register/>} />
-          <Route path="/category" element={<Categories />} />
+           <Route path="/category" element={<Categories />} />
+           <Route path="/Auth/Logout" element={<Logout/>} />
         </Routes>
       </div>
       <br />

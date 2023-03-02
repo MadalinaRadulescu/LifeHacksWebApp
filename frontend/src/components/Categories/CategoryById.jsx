@@ -1,4 +1,4 @@
-﻿import React, {useEffect, useState} from "react";
+﻿    import React, {useEffect, useState} from "react";
 
 export function CategoryById({id}) {
     const [category, setCategory] = useState(null);

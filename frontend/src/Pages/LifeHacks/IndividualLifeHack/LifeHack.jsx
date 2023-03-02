@@ -4,8 +4,8 @@ import {CategoryById} from "../../../Components/Categories/CategoryById";
 import {CommentByLifeHack} from "../../../Components/Comments/CommentByLifeHack";
 import {GetUserName} from "../../../Components/Users/GetUserName";
 import styles from "./styles.module.sass";
-import Placeholder from "../../../Images/Placeholder.png";
-import information from "../../../Images/information.png";
+import Placeholder from "../../Images/Placeholder.png";
+import information from "../../Images/information.png";
 
 const LifeHack = () => {
     const id = useParams().LifeHackId;
@@ -61,23 +61,6 @@ const LifeHack = () => {
                 day: 'numeric', month: 'long', year: 'numeric'
             })}</h6>
         </div>
-
-
-        {/*<div key={lifeHack.id}>*/}
-        {/*    <br />*/}
-        {/*    {lifeHack.photoName !== "" &&*/}
-        {/*        <img src={`data:image/png;base64,${lifeHack.photoName}`} alt={lifeHack.photoName} />*/}
-        {/*    }*/}
-        {/*    <p className={styles.paragraph}>{lifeHack.description}</p>*/}
-        {/*    <Link to={lifeHack.link}>{lifeHack.link}</Link>*/}
-        {/*    {lifeHack.categoriesId.map(categoryId => (*/}
-        {/*        <div key={categoryId}>*/}
-        {/*            <CategoryById id={categoryId}/>*/}
-        {/*        </div>*/}
-        {/*    ))}*/}
-        {/*    <p className={styles.paragraph}>Published at: {lifeHack.registredTime}</p>*/}
-        {/*    <p className={styles.paragraph}>VoteCount: {lifeHack.points}</p>*/}
-        {/*</div>*/}
         <CommentByLifeHack id={lifeHack.id}/>
         <GetUserName id={lifeHack.userId}/>
     </div>);

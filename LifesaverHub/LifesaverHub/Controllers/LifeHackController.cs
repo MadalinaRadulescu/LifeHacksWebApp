@@ -1,7 +1,9 @@
-﻿using LifesaverHub.Daos;
+﻿using System.Security.Claims;
+using LifesaverHub.Daos;
 using LifesaverHub.Daos.Implementations;
 using LifesaverHub.Data;
 using LifesaverHub.Models.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LifesaverHub.Controllers;
@@ -19,20 +21,37 @@ public class LifeHackController : Controller
     }
 
     [HttpGet("all")]
-    public List<LifeHack> GetLifeHacks() => _lifeHack.GetAll();
+    public List<LifeHack> GetLifeHacks()
+    {
+        // var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+        return _lifeHack.GetAll();  
+    } 
 
     [HttpGet("{id}")]
     public LifeHack GetLifeHack(string id) => _lifeHack.Get(id);
 
     [HttpPost("add")]
-    public async Task<int> AddLifeHack([FromBody] LifeHack lifeHack) => await _lifeHack.Add(lifeHack);
-    
+    [Authorize]
+    public async Task<int> AddLifeHack([FromBody] LifeHack lifeHack)
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+        return await _lifeHack.Add(lifeHack);
+    }
+
     [HttpDelete("remove/{id}")]
-    public async Task RemoveLifeHack(string id) => await _lifeHack.Remove(id);
-    
+    public async Task RemoveLifeHack(string id)
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+        await _lifeHack.Remove(id);
+    }
+
     [HttpPut("update")]
-    public async Task UpdateLifeHack([FromBody] LifeHack lifeHack) => await _lifeHack.Update(lifeHack);
-    
+    public async Task UpdateLifeHack([FromBody] LifeHack lifeHack)
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+        await _lifeHack.Update(lifeHack);
+    }
+
     [HttpGet("user/{userId}")]
     public List<LifeHack> GetUserLifeHacks(string userId) => _lifeHack.GetByUserId(userId);
     

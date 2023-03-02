@@ -1,20 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import image from "../../Images/1.png";
 import styles from "./styles.module.scss";
-import { Link } from "react-router-dom";
-import { CategoryById } from "../../Components/CategoryById/CategoryById";
 import AllLifeHacks from "../LifeHacks/AllLifeHacks/AllLifeHacks";
 
 const Home = () => {
   document.title = "Life Saver Hub";
-  // const [lifeHacks, setLifeHacks] = useState([]);
+  
   const clickScroll = useRef(null);
 
-  // useEffect(() => {
-  //   fetch("https://localhost:44330/lifeHack/newest")
-  //     .then((response) => response.json())
-  //     .then((data) => setLifeHacks(data));
-  // }, []);
 
   const handleScroll = (ref) => {
     window.scrollTo({
@@ -53,25 +46,7 @@ const Home = () => {
 
       <div className={styles.test}>
         <AllLifeHacks />
-        {/*<p>Am 3l ei</p>*/}
-        {/*<div>*/}
-        {/*  {lifeHacks?.map((item) => (*/}
-        {/*    <div key={item.id}>*/}
-        {/*      <br />*/}
-        {/*      <h2>{item.title}</h2>*/}
-        
-        {/*      <p>{item.description}</p>*/}
-        {/*      <Link to={item.link}>{item.link}</Link>*/}
-        {/*      {item.categoriesId.map((categoryId) => (*/}
-        {/*        <div key={categoryId}>*/}
-        {/*          <CategoryById id={categoryId} />*/}
-        {/*        </div>*/}
-        {/*      ))}*/}
-        {/*      <p>Published at: {item.registredTime}</p>*/}
-        {/*      <p>VoteCount: {item.points}</p>*/}
-        {/*    </div>*/}
-        {/*  ))}*/}
-        {/*</div>*/}
+      
       </div>
     </div>
   );
