@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { redirect, useNavigate} from "react-router-dom";
 import Home from "../Home/Home"
 import styles from "./styles.module.scss"
-import {useAtom} from "jotai"
-import STATE from "../../Store"
+// import {useAtom} from "jotai"
+// import STATE from "../../Store"
 
 
 
 const Login = ()=>{
     let navigate = useNavigate();
-    const [user, setUser] = useAtom(STATE.USER_DATA);
+    // const [user, setUser] = useAtom(STATE.USER_DATA);
+    const [user, setUser] = useState();
     
     const fetchData = async(form) =>{
         console.log(form.get("email"), " din fetch!!!!!")
@@ -28,7 +29,7 @@ const Login = ()=>{
         if (response.ok){
             let data = await response.json();
             console.log(data);
-            // localStorage.setItem('user', data.isSuccess);
+            localStorage.setItem('user', data.isSuccess);
             setUser(data);
             
             
