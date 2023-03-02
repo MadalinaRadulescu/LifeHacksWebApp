@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 // import { useAtom } from "jotai";
-// import STATE from "../../Store";
+// import {USER_DATA} from "../../Store";
 
 function LoggedIn({ addLifeHack, logOut }) {
   return (
@@ -20,7 +20,7 @@ function LoggedIn({ addLifeHack, logOut }) {
 }
 
 function LoggedOut({ register, logIn }) {
-  // window.localStorage.clear();
+  window.localStorage.clear();
   return (
     <>
       <div className={styles.overflow}>
@@ -38,7 +38,7 @@ export default function Navbar() {
   const [categoriesData, setCategoriesData] = useState(null);
   const [searchValue, setSearchValue] = useState("Search");
   const outside = useRef(null);
-  // const [user] = useAtom(STATE.USER_DATA);
+  // const [user] = useAtom(USER_DATA);
 
   useEffect(() => {
     fetch("http://localhost:5260/category/all")

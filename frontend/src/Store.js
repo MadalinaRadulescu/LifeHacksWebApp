@@ -1,6 +1,6 @@
-// import { atom } from "jotai";
+import { atom } from "jotai";
 
 // const STATE = {
 //     USER_DATA : atom({})
 // }
-// export default STATE;
+// export const USER_DATA = atom({})
