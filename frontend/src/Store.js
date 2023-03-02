@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 
-const STATE = {
-    USER_DATA : atom({})
+const state = {
+    userData : atom({})
 }
-export default STATE;
+export default state;
