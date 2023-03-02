@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
-import logo from "../../Images/LifeSaverHubLogo.png";
 import {Link, useNavigate} from "react-router-dom";
+import logo from "../../images/LifeSaverHubLogo.png";
 import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 
