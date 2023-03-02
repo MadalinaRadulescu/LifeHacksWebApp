@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-﻿import React, {useEffect, useState} from "react";
-import {GetUserName} from "../Users/GetUserName";
 import styles from "./styles.module.sass";
 import Placeholder from "../../Images/Placeholder.png";
 import information from "../../Images/information.png";
-=======
-﻿import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GetUserName } from "../Users/GetUserName";
-import styles from "../../Pages/LifeHacks/styles.module.sass";
-import Placeholder from "../../images/Placeholder.png";
-import information from "../../images/information.png";
->>>>>>> origin/Madi
 
 export function CommentByLifeHack({ id }) {
     const [comments, setComments] = useState([]);

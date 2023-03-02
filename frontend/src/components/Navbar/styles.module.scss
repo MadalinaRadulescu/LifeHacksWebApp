@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 .navbar {
+  z-index: 2;
   display: flex;
   list-style-type: none;
   margin: 0;
@@ -42,13 +43,13 @@
 
 .dropdown {
   background-color: #123c69;
-  position: absolute;
+  position: fixed;
   left: 10%;
   top: 50px;
   width: 140px;
   border-radius: 10%;
   box-shadow: 3px 3px black, -1em 0 .4em black;
-  
+  z-index: 1;
 }
 ul {
   list-style: none;

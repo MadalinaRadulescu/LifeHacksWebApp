@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import logo from "../../images/LifeSaverHubLogo.png";
+import logo from "../../Images/LifeSaverHubLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
@@ -40,7 +40,7 @@ export default function Navbar() {
     const [user] = useAtom(state.userData);
 
     useEffect(() => {
-        fetch("http://localhost:5260/category/all")
+        fetch("https://localhost:44330/category/all")
             .then((response) => response.json())
             .then((data) => setCategoriesData(data));
     }, []);
