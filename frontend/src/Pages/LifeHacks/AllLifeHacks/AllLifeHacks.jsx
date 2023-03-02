@@ -8,7 +8,7 @@ export default function AllLifeHacks() {
     const [lifeHacks, setLifeHacks] = useState(null);
 
     useEffect(() => {
-        fetch("https://localhost:44330/lifeHack/newest")
+        fetch("http://localhost:5260/lifeHack/newest")
             .then((response) => response.json())
             .then((json) => setLifeHacks(json))
             .catch((error) => console.log(error));
@@ -75,12 +75,12 @@ export default function AllLifeHacks() {
                                 </Link>
                             </>)}
                     </div>
-                    <h5>
+                    <h5 className={styles.time1}>
                         {new Date(lifeHack.registeredTime).toLocaleTimeString("en-US", {
                             hour12: false, hour: "2-digit", minute: "2-digit",
                         })}
                     </h5>
-                    <h6>
+                    <h6 className={styles.time2}>
                         {new Date(lifeHack.registeredTime).toLocaleDateString("en-GB", {
                             day: "numeric", month: "long", year: "numeric",
                         })}
