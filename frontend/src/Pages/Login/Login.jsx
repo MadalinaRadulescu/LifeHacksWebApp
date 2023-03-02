@@ -1,20 +1,17 @@
 import { useEffect, useState } from "react";
-import { redirect, useNavigate} from "react-router-dom";
-import Home from "../Home/Home"
-import styles from "./styles.module.scss"
-// import {useAtom} from "jotai"
-// import {USER_DATA} from "../../Store"
+import { redirect, useNavigate } from "react-router-dom";
+import Home from "../Home/Home";
+import styles from "./styles.module.scss";
+import { useAtom } from "jotai";
+import state from "../../Store";
 
-
-
-const Login = ()=>{
+const Login = () => {
     let navigate = useNavigate();
-    // const[user, setUser] = useAtom(USER_DATA)
-    const [user, setUser] = useState();
-    
-    const fetchData = async(form) =>{
-        console.log(form.get("email"), " din fetch!!!!!")
-        let response = await  fetch("http://localhost:5260/api/Auth/login",{
+    const [user, setUser] = useAtom(state.userData);
+
+    const fetchData = async (form) => {
+        console.log(form.get("email"), " din fetch!!!!!");
+        let response = await fetch("http://localhost:5260/api/Auth/login", {
             method: "POST",
             headers: {
                 // "Content-Type": "application/json",
@@ -23,68 +20,67 @@ const Login = ()=>{
                 // DON'T overwrite Content-Type header
             },
             credentials: "include",
-            body: form
+            body: form,
         });
-    
-        if (response.ok){
+
+        if (response.ok) {
             let data = await response.json();
             console.log(data);
             // localStorage.setItem('user', data.isSuccess);
             setUser(data);
-            
-            
         }
-        
     };
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         let form = new FormData();
-        form.append("email",event.target.email.value)
-        form.append("password",event.target.password.value)
-        
+        form.append("email", event.target.email.value);
+        form.append("password", event.target.password.value);
+
         fetchData(form);
-        
     };
-    
- 
-    if(user){
-        if (user.isSuccess){
+
+    if (user) {
+        if (user.isSuccess) {
             let path = `/`;
             navigate(path);
-        }   
-    };
+        }
+    }
 
     return (
         <>
-       
-        <div className={styles.form}>
-            <h1 className={styles.logInTitle}>Log in</h1>
-            <br/>
-            <form onSubmit={handleSubmit}>
-
-                
-                <label className={styles.email}>
-                    Email:<br/>
-                    <input type="email"  name="email"  id="email" placeholder="Enter Email"/>
-                </label>
-                <br/>
-                <label className={styles.password}>
-                    Password:<br/>
-                    <input type="password" name="password" placeholder="Enter Password" />
-                </label>
-                {user && 
-                <div> {user.message}</div>
-                }
-                <br/>
-                <input type="submit" value="Login"  />
-
-            </form>
-            
-        </div>
+            <div className={styles.form}>
+                <h1 className={styles.logInTitle}>Log in</h1>
+                <br />
+                <form onSubmit={handleSubmit}>
+                    <label className={styles.email}>
+                        Email:
+                        <br />
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Enter Email"
+                        />
+                    </label>
+                    <br />
+                    <label className={styles.password}>
+                        Password:
+                        <br />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter Password"
+                        />
+                    </label>
+                    {user && <div> {user.message}</div>}
+                    <br />
+                    <input type="submit" value="Login" />
+                </form>
+            </div>
         </>
-    )
+    );
 };
 
 export default Login;
