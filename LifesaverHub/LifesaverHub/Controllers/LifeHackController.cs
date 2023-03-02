@@ -10,8 +10,11 @@ namespace LifesaverHub.Controllers;
 public class LifeHackController : Controller
 {
     private readonly ILifeHackDao _lifeHack;
-    public LifeHackController(DatabaseContext db)
+    private readonly ILogger<LifeHackController> _logger;
+
+    public LifeHackController(DatabaseContext db, ILogger<LifeHackController> logger)
     {
+        _logger = logger;
         _lifeHack = new LifeHackDao(db);
     }
 

@@ -35,7 +35,6 @@ public class DatabaseContext : IdentityDbContext
                 Title = "How to remove the steam from the strawberries?",
                 Description =
                     "To easily remove the steam from the strawberries we recommend to use a straw as in image from bellow.",
-                PhotoName = "",
                 Points = 27,
                 UserId = "0"
             },
@@ -45,7 +44,6 @@ public class DatabaseContext : IdentityDbContext
                 Title = "How to properly close a bag of chips?",
                 Description =
                     "The best way to kip chips fresh after opening is by using any clipper, like the ones from hanger.",
-                PhotoName = "",
                 UserId = "0"
             },
             new LifeHack
@@ -73,7 +71,6 @@ public class DatabaseContext : IdentityDbContext
                 Title = "Useful tip for baking cupcakes",
                 Description =
                     "Sprinkle dried rice under your cupcake cases before baking. The rice absorbs any grease throughout baking meaning you get lovely dry cupcake bases and no greasy patches on your cases!",
-                PhotoName = "",
                 Points = 25,
                 UserId = "1"
             }

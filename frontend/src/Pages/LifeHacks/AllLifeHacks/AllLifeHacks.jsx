@@ -1,6 +1,6 @@
 ﻿import React, {useEffect, useState} from "react";
-import Placeholder from "../../Images/Placeholder.png"
-import information from "../../Images/information.png"
+import Placeholder from "../../../Images/Placeholder.png"
+import information from "../../../Images/information.png"
 import styles from "./styles.module.sass";
 import {Link} from "react-router-dom";
 
@@ -35,13 +35,11 @@ const AllLifeHacks = () => {
     return (<>
         {lifeHacks.map(lifeHack => (
 
-            <Link key={lifeHack.id} to={`/lifeHack/${lifeHack.id}`} style={{textDecoration: 'none'}}>
-                <div className={styles.card}>
+                <div key={lifeHack.id} className={styles.card}>
                     <div className={styles.thumbnail}>
-
-                        {lifeHack.photoName !== "" ?
-                            <img className={styles.customImg} src={`data:image/png;base64,${lifeHack.photoName}`}
-                                 alt={lifeHack.photoName}/> :
+                        {lifeHack.image.length > 0 ?
+                            <img className={styles.customImg} src={lifeHack.image[0]}
+                                 alt={lifeHack.image[0]}/> :
                             <img className={styles.customImg} src={Placeholder} alt="Placeholder"/>}
                     </div>
                     <div className={styles.right}>
@@ -58,9 +56,11 @@ const AllLifeHacks = () => {
                     <h6>{new Date(lifeHack.registeredTime).toLocaleDateString('en-GB', {
                         day: 'numeric', month: 'long', year: 'numeric'
                     })}</h6>
-                    <div className={styles.fab}><img className={styles.customImg} src={information} alt="Information"/></div>
+                    <Link to={`/lifeHack/${lifeHack.id}`} className={styles.infoLink}>
+                        <img className={styles.infoImg} src={information} alt="Information"/>
+                    </Link>
                 </div>
-            </Link>))}
+            ))}
     </>);
 };
 export default AllLifeHacks;

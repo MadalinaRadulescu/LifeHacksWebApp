@@ -5,22 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea019d71-feb8-44b2-9378-665b4ccd2a90" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Pages/LifeHacks/AddLifeHack/AddLifeHack.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/LifeHacks/AllLifeHacks/styles.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/CategoryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/CommentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/CommentController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/LifeHackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/LifeHackController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/UserDataController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/UserDataController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/ICategoryDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/ICategoryBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/ICommentDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/ICommentBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/IDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/IBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/ILifeHackDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/ILifeHackBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/ISpecificDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/IDetailedBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/IUserDataDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/IUserDataBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/Implementations/CategoryDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/Implementations/CategoryBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/Implementations/CommentDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/Implementations/CommentBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/Implementations/LifeHackDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/Implementations/LifeHackBaseDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/Implementations/UserDataDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Daos/Implementations/UserDataBaseDao.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Data/DatabaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Data/DatabaseContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Migrations/20230216165630_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Migrations/20230216165630_InitialCreate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Migrations/DatabaseContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Models/Entities/LifeHack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Models/Entities/LifeHack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Services/ImageHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.idea.frontend.dir/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.frontend.dir/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.src.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.src.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Comments/CommentByLifeHack.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Comments/CommentByLifeHack.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Navbar/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Navbar/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/LifeHacks/AddLifeHack.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/LifeHacks/AllLifeHacks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/LifeHacks/AllLifeHacks/AllLifeHacks.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/LifeHacks/LifeHack.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/LifeHacks/IndividualLifeHack/LifeHack.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/LifeHacks/styles.module.sass" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Categories/Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Categories/Categories.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +40,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -73,6 +76,7 @@
       <workItem from="1675961419239" duration="9167000" />
       <workItem from="1676275086878" duration="1062000" />
       <workItem from="1676303852588" duration="515000" />
+      <workItem from="1677744558448" duration="8904000" />
     </task>
     <servers />
   </component>

@@ -1,11 +1,11 @@
 ﻿import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
-import {CategoryById} from "../../Components/Categories/CategoryById";
-import {CommentByLifeHack} from "../../Components/Comments/CommentByLifeHack";
-import {GetUserName} from "../../Components/Users/GetUserName";
+import {CategoryById} from "../../../Components/Categories/CategoryById";
+import {CommentByLifeHack} from "../../../Components/Comments/CommentByLifeHack";
+import {GetUserName} from "../../../Components/Users/GetUserName";
 import styles from "./styles.module.sass";
-import Placeholder from "../../Images/Placeholder.png";
-import information from "../../Images/information.png";
+import Placeholder from "../../../Images/Placeholder.png";
+import information from "../../../Images/information.png";
 
 const LifeHack = () => {
     const id = useParams().LifeHackId;
@@ -41,10 +41,9 @@ const LifeHack = () => {
         <h1 className="PageTitle">{lifeHack.title}</h1>
         <div className={styles.card}>
             <div className={styles.thumbnail}>
-
-                {lifeHack.photoName !== "" ?
-                    <img className={styles.customImg} src={`data:image/png;base64,${lifeHack.photoName}`}
-                         alt={lifeHack.photoName}/> :
+                {lifeHack.image.length > 0 ?
+                    <img className={styles.customImg} src={lifeHack.image[0]}
+                         alt={lifeHack.image[0]}/> :
                     <img className={styles.customImg} src={Placeholder} alt="Placeholder"/>}
             </div>
             <div className={styles.right}>

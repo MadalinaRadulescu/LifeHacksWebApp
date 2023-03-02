@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 
 export default function Categories() {
-  const [categoriesData, setCategoriesData] = useState();
+  const [categoriesData, setCategoriesData] = useState(null);
 
   useEffect(() => {
-      fetch("http://localhost:5260/category/all")
+      fetch("https://localhost:44330/category/all")
       .then((response) => response.json())
       .then((data) => setCategoriesData(data));
       
   }, []);
-  console.log(categoriesData)
   return (
     <>
-      {categoriesData !== undefined &&
+      {categoriesData !== null &&
         categoriesData.map((category) => <p key={category.id}>{category.name}</p>)}
     </>
   );

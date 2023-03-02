@@ -3,7 +3,7 @@ import image from "../../Images/1.png";
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import { CategoryById } from "../../Components/CategoryById/CategoryById";
-import AllLifeHacks from "../LifeHacks/AllLifeHacks";
+import AllLifeHacks from "../LifeHacks/AllLifeHacks/AllLifeHacks";
 
 const Home = () => {
   document.title = "Life Saver Hub";

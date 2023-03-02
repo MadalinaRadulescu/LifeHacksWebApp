@@ -1,7 +1,7 @@
 ﻿using LifesaverHub.Daos;
 using LifesaverHub.Daos.Implementations;
 using LifesaverHub.Data;
-using LifesaverHub.Models.Entities;
+using LifesaverHub.Models.Entities; 
 using Microsoft.AspNetCore.Mvc;
 
 namespace LifesaverHub.Controllers;
@@ -13,10 +13,7 @@ public class CategoryController : Controller
     public CategoryController(DatabaseContext db) => _category = new CategoryDao(db);
 
     [HttpGet("all")]
-    public List<Category> GetCategories()
-    {
-        return _category.GetAll();
-    }
+    public List<Category> GetCategories() => _category.GetAll();
 
     [HttpGet("{id}")]
     public Category GetCategory(string id) => _category.Get(id);

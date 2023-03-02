@@ -1,6 +1,6 @@
 ﻿import React, {useEffect, useState} from "react";
 import {GetUserName} from "../Users/GetUserName";
-import styles from "../../Pages/LifeHacks/styles.module.sass";
+import styles from "./styles.module.sass";
 import Placeholder from "../../Images/Placeholder.png";
 import information from "../../Images/information.png";
 
