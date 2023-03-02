@@ -1,4 +1,4 @@
-﻿import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import {CategoryById} from "../../../Components/Categories/CategoryById";
 import {CommentByLifeHack} from "../../../Components/Comments/CommentByLifeHack";
@@ -13,26 +13,37 @@ const LifeHack = () => {
 
     useEffect(() => {
         fetch(`https://localhost:44330/lifeHack/${id}`)
-            .then(response => response.json())
-            .then(json => setLifeHack(json))
-            .catch(error => console.log(error));
+            .then((response) => response.json())
+            .then((json) => setLifeHack(json))
+            .catch((error) => console.log(error));
     }, []);
 
     if (!lifeHack) {
         return (
             <div className={styles.card}>
                 <div className={styles.thumbnail}>
-                    <img className={styles.customImg} src={Placeholder} alt="Placeholder"/>
+                    <img
+                        className={styles.customImg}
+                        src={Placeholder}
+                        alt="Placeholder"
+                    />
                 </div>
                 <div className={styles.right}>
                     <h1 className={styles.LHTitle}>Loading...</h1>
-                    <div className={styles.separator}/>
+                    <div className={styles.separator} />
                     <p className={styles.paragraph}>Loading...</p>
                 </div>
                 <h5>25:61</h5>
                 <h6>30 February</h6>
-                <div className={styles.fab}><img className={styles.customImg} src={information} alt="Information"/></div>
-            </div>);
+                <div className={styles.fab}>
+                    <img
+                        className={styles.customImg}
+                        src={information}
+                        alt="Information"
+                    />
+                </div>
+            </div>
+        );
     }
 
     document.title = lifeHack.title;
