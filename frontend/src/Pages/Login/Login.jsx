@@ -26,7 +26,7 @@ const Login = () => {
         if (response.ok) {
             let data = await response.json();
             console.log(data);
-            // localStorage.setItem('user', data.isSuccess);
+            localStorage.setItem('user', data.isSuccess);
             setUser(data);
         }
     };
