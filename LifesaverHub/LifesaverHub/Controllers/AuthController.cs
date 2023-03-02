@@ -36,17 +36,15 @@ public class AuthController : ControllerBase
         if (ModelState.IsValid)
         {
             var result = await _userService.LoginUserAsync(model);
-            Response.Cookies.Append("jwt", result.Message, new CookieOptions
+            if (result.IsSuccess)
+            {
+                Response.Cookies.Append("jwt", result.Message, new CookieOptions
                 {
                     HttpOnly = true,
                     Secure = true,
                     SameSite = SameSiteMode.None
-                }
-            );
-            
-            // if (result.IsSuccess)
-            //     return Ok(result); // Status code: 200
-            // return Ok(result);
+                }); 
+            }
             return Ok(result);
         }
         
@@ -65,7 +63,7 @@ public class AuthController : ControllerBase
         Response.Cookies.Delete("jwt");
         return Ok(new
         {
-            message = "succes"
+            message = "You are logged out!"
         });
     }
 }

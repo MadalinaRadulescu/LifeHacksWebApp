@@ -74,7 +74,7 @@ public class UserService : IUserService
         {
             return new UserManagerResponse()
             {
-                Message = "There is no user with that email address.",
+                Message = "Invalid email or password!",
                 IsSuccess = false,
             };
         }
@@ -83,7 +83,7 @@ public class UserService : IUserService
         if (!result)
             return new UserManagerResponse()
             {
-                Message = "Invalid password!",
+                Message = "Invalid email or password!",
                 IsSuccess = false,
             };
 
@@ -112,6 +112,8 @@ public class UserService : IUserService
             Message = tokenAsString,
             IsSuccess = true,
             ExpireDate = token.ValidTo,
+            UserId = user.Id,
+            UserName = user.Email
         };
 
     }
