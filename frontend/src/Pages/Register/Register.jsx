@@ -8,7 +8,7 @@ const Register = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const fetchData = async (form) => {
-        let response = await fetch("http://localhost:5260/api/Auth/register", {
+        let response = await fetch("https://localhost:44330/api/Auth/register", {
             method: "POST",
             headers: {
                 credentials: "include",

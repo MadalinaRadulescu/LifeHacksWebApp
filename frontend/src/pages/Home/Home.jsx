@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
-import AllLifeHacks from "../LifeHacks/AllLifeHacks";
-
-import image from "../../images/1.png";
+import AllLifeHacks from "../LifeHacks/AllLifeHacks/AllLifeHacks";
+import image from "../../Images/1.png";
 import styles from "./styles.module.scss";
 
 const Home = () => {

@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
-import {CategoryById} from "../../../Components/Categories/CategoryById";
 import {CommentByLifeHack} from "../../../Components/Comments/CommentByLifeHack";
 import {GetUserName} from "../../../Components/Users/GetUserName";
 import styles from "./styles.module.sass";
-import Placeholder from "../../Images/Placeholder.png";
-import information from "../../Images/information.png";
+import Placeholder from "../../../Images/Placeholder.png";
+import information from "../../../Images/information.png";
 
 const LifeHack = () => {
     const id = useParams().LifeHackId;

@@ -31,10 +31,10 @@ public class LifeHackController : Controller
     public LifeHack GetLifeHack(string id) => _lifeHack.Get(id);
 
     [HttpPost("add")]
-    [Authorize]
+    //[Authorize]
     public async Task<int> AddLifeHack([FromBody] LifeHack lifeHack)
     {
-        var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+        //var userId = User.FindFirst(ClaimTypes.NameIdentifier);
         return await _lifeHack.Add(lifeHack);
     }
 

@@ -11,7 +11,7 @@ const Login = () => {
 
     const fetchData = async (form) => {
         console.log(form.get("email"), " din fetch!!!!!");
-        let response = await fetch("http://localhost:5260/api/Auth/login", {
+        let response = await fetch("https://localhost:44330/api/Auth/login", {
             method: "POST",
             headers: {
                 // "Content-Type": "application/json",

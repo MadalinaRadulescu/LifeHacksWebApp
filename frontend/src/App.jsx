@@ -9,6 +9,7 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Categories from "./Pages/Categories/Categories";
 import Logout from "./Pages/Logout/Logout";
+import Home from "./Pages/Home/Home"
 
 const App = () => {
     return (

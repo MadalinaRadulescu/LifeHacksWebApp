@@ -73,7 +73,7 @@ const AddLifeHack = () => {
         })
             .then(response => response.json())
             .then(data => setResult(data))
-            .catch(error => console.log(error));
+            .catch(error => console.log(JSON.stringify(lifeHack)));
     };
 
     if (result) {

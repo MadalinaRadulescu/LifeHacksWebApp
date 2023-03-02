@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Logout = () => {
     let navigate = useNavigate();
     useEffect(() => {
-        fetch("http://localhost:5260/api/Auth/Logout", {
+        fetch("https://localhost:44330/api/Auth/Logout", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include",
