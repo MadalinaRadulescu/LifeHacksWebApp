@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAtom } from "jotai";
 import state from "../../Store";
+import AllLifeHacks from "../../Pages/LifeHacks/AllLifeHacks/AllLifeHacks";
 
 function LoggedIn({ addLifeHack, logOut }) {
     return (
@@ -100,7 +101,7 @@ export default function Navbar() {
                     <input
                         type="text"
                         name="name"
-                        value={searchValue}
+                        placeholder={searchValue}
                         onChange={searchVal}
                         className={styles.searchbar}
                     />
@@ -112,7 +113,7 @@ export default function Navbar() {
                     <ul>
                         {categoriesData.map((item) => (
                             <li key={item.id}>
-                                <Link to={`/${item.name}`}>{item.name}</Link>
+                                <Link to={`/${item.id}`}>{item.name}</Link>
                             </li>
                         ))}
                     </ul>

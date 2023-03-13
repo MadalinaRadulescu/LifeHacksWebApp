@@ -3,10 +3,11 @@ import AllLifeHacks from "../LifeHacks/AllLifeHacks/AllLifeHacks";
 
 import image from "../../Images/1.png";
 import styles from "./styles.module.scss";
+import {useParams} from "react-router-dom";
 
 const Home = () => {
     document.title = "Life Saver Hub";
-
+    const {categoryId} = useParams();
     const clickScroll = useRef(null);
 
     const handleScroll = (ref) => {
@@ -40,7 +41,7 @@ const Home = () => {
             <div className={styles.color_fill} ref={clickScroll} />
 
             <div className={styles.test}>
-                <AllLifeHacks />
+                <AllLifeHacks categoryId={categoryId}/>
             </div>
         </div>
     );
