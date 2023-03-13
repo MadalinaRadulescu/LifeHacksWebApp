@@ -5,28 +5,12 @@ import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAtom } from "jotai";
 import state from "../../Store";
-import AllLifeHacks from "../../Pages/LifeHacks/AllLifeHacks/AllLifeHacks";
 
 function LoggedIn({ addLifeHack, logOut }) {
-    const [user] = useAtom(state.userData)
-
-    const getFirstPart = () => {
-        const match = user.userName.match(/^([^@]*)@/);
-        if (match) {
-            return match[1].substring(0, 1).toUpperCase() + match[1].substring(1);
-        }
-        return user.userName;
-    }
-
-
-    
     return (
         <>
             <div className={styles.overflow}>
                 <li onClick={addLifeHack}>Add</li>
-            </div>
-            <div className={styles.overflow}>
-                <li style={{textDecoration: "none"}}>Wellcome {getFirstPart()}!</li>
             </div>
             <div className={styles.overflow}>
                 <li onClick={logOut}>Log Out</li>
@@ -43,9 +27,6 @@ function LoggedOut({ register, logIn }) {
             </div>
             <div className={styles.overflow}>
                 <li onClick={logIn}>Log In</li>
-            </div>
-            <div className={styles.overflow}>
-                <li style={{textDecoration: "none"}}>You are logged out!</li>
             </div>
         </>
     );
@@ -97,7 +78,7 @@ export default function Navbar() {
 
     // var user = localStorage.getItem("user");
 
-    console.log(user.userId);
+    // console.log(user.userId);
 
     return (
         <>
@@ -110,10 +91,10 @@ export default function Navbar() {
                 <div className={styles.overflow} ref={outside}>
                     <li onClick={handleDropdown}>Categories</li>
                 </div>
-                {user.isSuccess ? (
+                {user?.isSuccess ? (
                     <LoggedIn addLifeHack={addLifeHack} logOut={logOut} />
                 ) : (
-                    <LoggedOut register={register} logIn={logIn} />
+                    <LoggedOut register={register} login={logIn} />
                 )}
                 <label>
                     <input
@@ -131,10 +112,7 @@ export default function Navbar() {
                     <ul>
                         {categoriesData.map((item) => (
                             <li key={item.id}>
-                                <Link to={{
-                                    pathname: `/`,
-                                    state: 'test'
-                                }}>{item.name}</Link>
+                                <Link to={`/${item.name}`}>{item.name}</Link>
                             </li>
                         ))}
                     </ul>
