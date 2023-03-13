@@ -11,7 +11,7 @@ const LifeHack = () => {
   const [lifeHack, setLifeHack] = useState(null);
 
   useEffect(() => {
-    fetch(`https://localhost:44330/lifeHack/${id}`)
+    fetch(`http://localhost:5260/lifeHack/${id}`)
       .then((response) => response.json())
       .then((json) => setLifeHack(json))
       .catch((error) => console.log(error));

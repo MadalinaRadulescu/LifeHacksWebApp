@@ -6,10 +6,6 @@ import {Link, useLocation} from "react-router-dom";
 
 export default function AllLifeHacks(categoryId = '') {
 
-
-
-
-
     const location = useLocation()
 
 //store the state in a variable if you want 
@@ -17,12 +13,10 @@ export default function AllLifeHacks(categoryId = '') {
 
     const Name = location.state
 
-    console.log(Name)
-    
-    
+    // console.log(Name)
     
     const [lifeHacks, setLifeHacks] = useState(null);
-    let url = (typeof categoryId === 'object')? 'https://localhost:44330/lifeHack/newest' : `https://localhost:44330/lifeHack/category/${categoryId}`
+    let url = (typeof categoryId === 'object')? 'http://localhost:5260/lifeHack/newest' : `https://localhost:44330/lifeHack/category/${categoryId}`
     useEffect(() => {
         fetch(url)
             .then((response) => response.json())

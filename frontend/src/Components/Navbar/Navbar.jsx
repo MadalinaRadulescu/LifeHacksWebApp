@@ -6,6 +6,7 @@ import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAtom } from "jotai";
 import state from "../../Store";
 
+
 function LoggedIn({ addLifeHack, logOut }) {
     return (
         <>
@@ -38,9 +39,10 @@ export default function Navbar() {
     const [searchValue, setSearchValue] = useState("Search");
     const outside = useRef(null);
     const [user] = useAtom(state.userData);
+    
 
     useEffect(() => {
-        fetch("https://localhost:44330/category/all")
+        fetch("http://localhost:5260/category/all")
             .then((response) => response.json())
             .then((data) => setCategoriesData(data));
     }, []);
@@ -76,9 +78,6 @@ export default function Navbar() {
         navigate(path);
     };
 
-    // var user = localStorage.getItem("user");
-
-    // console.log(user.userId);
 
     return (
         <>

@@ -19,7 +19,7 @@ const AddLifeHack = () => {
     });
 
     useEffect(() => {
-        fetch("https://localhost:44330/category/all")
+        fetch("http://localhost:5260/category/all")
             .then((response) => response.json())
             .then((data) => setCategoriesData(data))
             .catch((error) => console.log(error));
