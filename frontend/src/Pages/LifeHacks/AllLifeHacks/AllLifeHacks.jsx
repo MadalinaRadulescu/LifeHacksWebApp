@@ -2,13 +2,29 @@
 import Placeholder from "../../../Images/Placeholder.png"
 import information from "../../../Images/information.png"
 import styles from "./styles.module.sass";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
-export default function AllLifeHacks() {
+export default function AllLifeHacks(categoryId = '') {
+
+
+
+
+
+    const location = useLocation()
+
+//store the state in a variable if you want 
+//location.state then the property or object you want
+
+    const Name = location.state
+
+    console.log(Name)
+    
+    
+    
     const [lifeHacks, setLifeHacks] = useState(null);
-
+    let url = (typeof categoryId === 'object')? 'https://localhost:44330/lifeHack/newest' : `https://localhost:44330/lifeHack/category/${categoryId}`
     useEffect(() => {
-        fetch("http://localhost:5260/lifeHack/newest")
+        fetch(url)
             .then((response) => response.json())
             .then((json) => setLifeHacks(json))
             .catch((error) => console.log(error));

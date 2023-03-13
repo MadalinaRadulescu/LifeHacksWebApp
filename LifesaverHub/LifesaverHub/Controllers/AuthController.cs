@@ -63,6 +63,7 @@ public class AuthController : ControllerBase
         Response.Cookies.Delete("jwt");
         return Ok(new
         {
+            isSuccess = false,
             message = "You are logged out!"
         });
     }

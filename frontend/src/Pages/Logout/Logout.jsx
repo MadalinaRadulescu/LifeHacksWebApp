@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Home from "../Home/Home";
+import { useAtom } from "jotai";
+import state from "../../Store";
 
 const Logout = () => {
+    const[user, setUser] = useAtom(state.userData)
     let navigate = useNavigate();
     useEffect(() => {
         fetch("https://localhost:44330/api/Auth/Logout", {
@@ -12,6 +16,7 @@ const Logout = () => {
         })
             .then((response) => response.json())
             .then((r) => {
+                setUser(r)
                 let path = `/`;
                 document.cookie =
                     "jwt= ; Path=/; expires = Thu, 01 Jan 1970 00:00:00 GMT";
@@ -19,9 +24,7 @@ const Logout = () => {
             });
     }, [navigate]);
 
-    window.localStorage.clear();
-
-    return <></>;
+    return(<></>)
 };
 
 export default Logout;

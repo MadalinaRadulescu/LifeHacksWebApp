@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
-import Home from "../Home/Home";
 import styles from "./styles.module.scss";
 import { useAtom } from "jotai";
 import state from "../../Store";
@@ -74,7 +72,7 @@ const Login = () => {
                             placeholder="Enter Password"
                         />
                     </label>
-                    {user && <div> {user.message}</div>}
+                    {!user.isSuccess && <div> {user.message}</div>}
                     <br />
                     <input type="submit" value="Login" />
                 </form>
