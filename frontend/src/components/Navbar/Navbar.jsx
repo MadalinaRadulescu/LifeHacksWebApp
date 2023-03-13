@@ -94,7 +94,7 @@ export default function Navbar() {
                 {user?.isSuccess ? (
                     <LoggedIn addLifeHack={addLifeHack} logOut={logOut} />
                 ) : (
-                    <LoggedOut register={register} login={logIn} />
+                    <LoggedOut register={register} logIn={logIn} />
                 )}
                 <label>
                     <input
