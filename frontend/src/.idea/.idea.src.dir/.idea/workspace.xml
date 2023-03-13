@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ea019d71-feb8-44b2-9378-665b4ccd2a90" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Pages/LifeHacks/AddLifeHack/AddLifeHack.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/LifeHacks/AllLifeHacks/styles.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/LifeHackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Controllers/LifeHackController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Data/DatabaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Data/DatabaseContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Migrations/20230216165630_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Migrations/20230216165630_InitialCreate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Migrations/DatabaseContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Models/Entities/LifeHack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Models/Entities/LifeHack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LifesaverHub/LifesaverHub/Services/ImageHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.idea.frontend.dir/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.frontend.dir/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.src.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.src.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Comments/CommentByLifeHack.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Comments/CommentByLifeHack.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Navbar/styles.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Navbar/styles.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Layout.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/LifeHacks/AddLifeHack.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/LifeHacks/AllLifeHacks.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/LifeHacks/AllLifeHacks/AllLifeHacks.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/LifeHacks/LifeHack.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/LifeHacks/IndividualLifeHack/LifeHack.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/LifeHacks/styles.module.sass" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Categories/Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Categories/Categories.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LP1hHZozbVwkwUsG4NAGagaZec" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ea019d71-feb8-44b2-9378-665b4ccd2a90" name="Changes" comment="" />
+      <created>1675758020663</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675758020663</updated>
+      <workItem from="1675758038996" duration="1670000" />
+      <workItem from="1675930906043" duration="9065000" />
+      <workItem from="1675961419239" duration="9167000" />
+      <workItem from="1676275086878" duration="1062000" />
+      <workItem from="1676303852588" duration="515000" />
+      <workItem from="1677744558448" duration="8904000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
