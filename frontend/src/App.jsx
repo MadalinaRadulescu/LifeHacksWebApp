@@ -16,8 +16,15 @@ const App = () => {
         <>
             <Navbar />
             <div>
-                <Routes>
-                    <Route path="/" element={<Home />} />
+                <Routes> 
+                    <Route
+                    path="/"
+                    element={<Home categoryId={""} />}
+                />
+                    <Route
+                        path="/:categoryId"
+                        element={<Home categoryId={categoryId} />}
+                    />
                     <Route path="/Auth/login" element={<Login />} />
                     <Route
                         path="/lifeHack/:LifeHackId"
