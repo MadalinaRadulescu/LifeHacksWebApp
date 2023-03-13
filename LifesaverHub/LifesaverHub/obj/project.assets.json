@@ -460,19 +460,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/crispy/.nuget/packages/": {}
+    "C:\\Users\\Catta\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/crispy/codeCool/Advanced/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj",
+      "projectUniqueName": "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\LifesaverHub.csproj",
       "projectName": "LifesaverHub",
-      "projectPath": "/Users/crispy/codeCool/Advanced/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj",
-      "packagesPath": "/Users/crispy/.nuget/packages/",
-      "outputPath": "/Users/crispy/codeCool/Advanced/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/obj/",
+      "projectPath": "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\LifesaverHub.csproj",
+      "packagesPath": "C:\\Users\\Catta\\.nuget\\packages\\",
+      "outputPath": "D:\\codecool\\advanced\\w1\\el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu\\LifesaverHub\\LifesaverHub\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/crispy/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Catta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -524,7 +525,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
