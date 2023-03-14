@@ -10,6 +10,7 @@ import Footer from "./Components/Footer/Footer";
 import Categories from "./Pages/Categories/Categories";
 import Logout from "./Pages/Logout/Logout";
 import Home from "./Pages/Home/Home"
+import AboutUs from "./Pages/AboutUs/AboutUs";
 
 const App = () => {
     return (
@@ -27,6 +28,7 @@ const App = () => {
                     <Route path="/Auth/register" element={<Register />} />
                     <Route path="/category" element={<Categories />} />
                     <Route path="/Auth/Logout" element={<Logout />} />
+                    <Route path="/AboutUs" element={<AboutUs />} />
                 </Routes>
             </div>
             <br />
