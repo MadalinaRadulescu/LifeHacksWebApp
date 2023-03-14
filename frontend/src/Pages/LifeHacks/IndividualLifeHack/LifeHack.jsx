@@ -5,6 +5,7 @@ import { GetUserName } from "../../../Components/Users/GetUserName";
 import styles from "./styles.module.sass";
 import Placeholder from "../../../Images/Placeholder.png";
 import information from "../../../Images/information.png";
+import { CarouselPage} from "../../../Components/Carousel/CarouselPage";
 
 const LifeHack = () => {
   const id = useParams().LifeHackId;
@@ -51,13 +52,9 @@ const LifeHack = () => {
     <div className={styles.container}>
       <h1 className="PageTitle">{lifeHack.title}</h1>
       <div className={styles.card}>
-        <div className={styles.thumbnail}>
+        <div className={styles.thumbnail} style={{width: '400px'}} >
           {lifeHack.image.length > 0 ? (
-            <img
-              className={styles.customImg}
-              src={lifeHack.image[0]}
-              alt={lifeHack.image[0]}
-            />
+            <CarouselPage images={lifeHack.image} />
           ) : (
             <img
               className={styles.customImg}

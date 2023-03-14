@@ -41,6 +41,18 @@
   width: 150px;
 }
 
+.message{
+  position: relative;
+    display: flex;
+    color: white;
+    align-items: center;
+    padding: 14px 15px;
+    // cursor: pointer;
+    z-index: 5;
+    overflow: hidden;
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .dropdown {
   background-color: #123c69;
   position: fixed;
