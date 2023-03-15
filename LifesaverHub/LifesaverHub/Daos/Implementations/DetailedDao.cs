@@ -10,11 +10,11 @@ public class DetailedDao<T> : Dao<T>, IDetailedDao<T> where T : DetailedBaseEnti
 
     public DetailedDao(DatabaseContext context) : base(context) => _context = context;
 
-    public List<T> GetByUserId(string userId) => this switch
+    public List<T> GetByUserId(string userId) => typeof(T) switch
     {
-        Comment => (_context.Comments.Where(comment => comment.UserId == userId).ToListAsync().Result as List<T>)!,
-        LifeHack =>(_context.LifeHacks.Where(lifeHack => lifeHack.UserId == userId).ToListAsync().Result as List<T>)!,
-        UserData => (_context.UsersData.Where(userData => userData.UserId == userId).ToListAsync().Result as List<T>)!,
+        var value when value == typeof(Comment) => (_context.Comments.Where(comment => comment.UserId == userId).ToListAsync().Result as List<T>)!,
+        var value when value == typeof(LifeHack) =>(_context.LifeHacks.Where(lifeHack => lifeHack.UserId == userId).ToListAsync().Result as List<T>)!,
+        var value when value == typeof(UserData) => (_context.UsersData.Where(userData => userData.UserId == userId).ToListAsync().Result as List<T>)!,
         _ => new List<T>()
     };
 

@@ -22,6 +22,7 @@ public class Dao<T> : IDao<T> where T : BaseEntity
                 break;
             case LifeHack lifeHack:
                 await _context.LifeHacks.AddAsync(lifeHack);
+                
                 break;
             case UserData userData:
                 await _context.UsersData.AddAsync(userData);

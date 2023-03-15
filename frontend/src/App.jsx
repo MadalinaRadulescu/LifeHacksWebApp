@@ -10,6 +10,7 @@ import Footer from "./Components/Footer/Footer";
 import Categories from "./Pages/Categories/Categories";
 import Logout from "./Pages/Logout/Logout";
 import Home from "./Pages/Home/Home"
+import YourLifeHacks from "./Pages/YourLifeHacks/YourLifeHacks";
 
 const App = () => {
     return (
@@ -22,6 +23,10 @@ const App = () => {
                     <Route
                         path="/lifeHack/:LifeHackId"
                         element={<LifeHack />}
+                    />
+                    <Route
+                        path="/lifeHack/user/:userId"
+                        element={<YourLifeHacks />}
                     />
                     <Route path="/addLifeHack" element={<AddLifeHack />} />
                     <Route path="/Auth/register" element={<Register />} />

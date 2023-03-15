@@ -19,7 +19,7 @@ export default function AllLifeHacks(categoryId = "") {
   let url =
     typeof categoryId === "object"
       ? "http://localhost:5260/lifeHack/newest"
-      : `https://localhost:44330/lifeHack/category/${categoryId}`;
+      : `http://localhost:5260/lifeHack/category/${categoryId}`;
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())

@@ -50,7 +50,7 @@ const LifeHack = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className="PageTitle">{lifeHack.title}</h1>
+      <h1 className={styles.pageTitle}>{lifeHack.title}</h1>
       <div className={styles.card}>
         <div className={styles.thumbnail} style={{width: '400px'}} >
           {lifeHack.image.length > 0 ? (
@@ -78,7 +78,7 @@ const LifeHack = () => {
               year: "numeric",
             })}
           </h6>
-          <h1 className={styles.LHTitle}>{lifeHack.title}</h1>
+          {/* <h1 className={styles.LHTitle}>{lifeHack.title}</h1> */}
           <div className={styles.separator} />
           <p className={styles.paragraph}>{lifeHack.description}</p>
           {lifeHack.link !== "" && (

@@ -8,7 +8,7 @@ export function CommentByLifeHack({ id }) {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        fetch(`https://localhost:44330/comment/lifeHack/${id}`)
+        fetch(`http://localhost:5260/comment/lifeHack/${id}`)
             .then((response) => response.json())
             .then((data) => setComments(data))
             .catch((error) => console.log(error));

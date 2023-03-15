@@ -7,7 +7,7 @@ import { useAtom } from "jotai";
 import state from "../../Store";
 
 
-function LoggedIn({ addLifeHack, logOut, user }) {
+function LoggedIn({ addLifeHack, logOut, user, yourLifeHacks }) {
     return (
         <>
             <div className={styles.overflow}>
@@ -16,7 +16,10 @@ function LoggedIn({ addLifeHack, logOut, user }) {
             <div className={styles.overflow}>
                 <li onClick={logOut}>Log Out</li>
             </div>
-            <div className={styles.message}>Welcome {user.userName}</div>
+            <div className={styles.overflow}>
+                <Link to={`/lifeHack/user/${user.userId}`}> Your Life Hacks</Link>
+            </div>
+            <div className={styles.message}>Welcome {user.userId}{user.userName}</div>
         </>
     );
 }
@@ -70,6 +73,11 @@ export default function Navbar() {
         navigate(path);
     };
 
+    const yourLifeHacks = (userId)=>{
+        let path = `/lifeHack/user/${userId}`;
+        navigate(path);
+    }
+
     const logIn = () => {
         let path = `/Auth/login`;
         navigate(path);
@@ -93,7 +101,7 @@ export default function Navbar() {
                     <li onClick={handleDropdown}>Categories</li>
                 </div>
                 {user?.isSuccess ? (
-                    <LoggedIn addLifeHack={addLifeHack} logOut={logOut} user={user} />
+                    <LoggedIn addLifeHack={addLifeHack} logOut={logOut} user={user}  yourLifeHacks={yourLifeHacks}  />
                 ) : (
                     <LoggedOut register={register} logIn={logIn} />
                 )}
