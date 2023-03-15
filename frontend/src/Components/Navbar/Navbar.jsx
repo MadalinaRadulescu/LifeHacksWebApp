@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAtom } from "jotai";
-import state from "../../Store";
+import state, { searchFilter } from "../../Store";
 
 function LoggedIn({ addLifeHack, logOut }) {
   return (
@@ -34,8 +34,9 @@ function LoggedOut({ register, logIn }) {
 
 export default function Navbar() {
   const [isDropDown, setIsDropDown] = useState(false);
-  const [categoriesData, setCategoriesData] = useState(null);
-  const [searchValue, setSearchValue] = useState("Search");
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [searchValue, setSearchValue] = useAtom(searchFilter);
+  const [searchResults, setResults] = useState([]);
   const outside = useRef(null);
   const [user] = useAtom(state.userData);
 
@@ -48,7 +49,8 @@ export default function Navbar() {
   useOnClickOutside(outside, () => setIsDropDown(false));
 
   function searchVal(event) {
-    setSearchValue(event.target.value);
+    event.preventDefault();
+    setSearchValue(event.target.value)
   }
 
   const handleDropdown = () => {
@@ -96,15 +98,15 @@ export default function Navbar() {
             <Link to="/AboutUs">About Us</Link>
           </li>
         </div>
-        <label className={styles.searchbar_container}>
+        <form className={styles.searchbar_container}>
           <input
             type="text"
             name="name"
-            value={searchValue}
             onChange={searchVal}
+            placeholder="Search.."
             className={styles.searchbar}
           />
-        </label>
+        </form>
         {user?.isSuccess ? (
           <LoggedIn addLifeHack={addLifeHack} logOut={logOut} />
         ) : (

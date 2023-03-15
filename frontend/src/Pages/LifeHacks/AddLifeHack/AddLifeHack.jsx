@@ -19,7 +19,7 @@ const AddLifeHack = () => {
     });
 
     useEffect(() => {
-        fetch("https://localhost:44330/category/all")
+        fetch("http://localhost:5260/category/all")
             .then((response) => response.json())
             .then((data) => setCategoriesData(data))
             .catch((error) => console.log(error));
@@ -68,7 +68,7 @@ const AddLifeHack = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        fetch('https://localhost:44330/lifeHack/add', {
+        fetch('http://localhost:5260/lifeHack/add', {
             method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(lifeHack),
         })
             .then(response => response.json())

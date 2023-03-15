@@ -41,13 +41,16 @@
     border: none;
     border-radius: 5px;
     margin-top: 20px;
+    transition: all linear;
+    transition-duration: 300ms;
     font-size: 16px;
     cursor: pointer;
   }
 
   button:hover {
     text-decoration: underline;
-    font-size: 18px;
+    transform: scale(1.10);
+
   }
   .home_image {
     width: 55%;

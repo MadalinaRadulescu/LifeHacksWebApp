@@ -34,6 +34,11 @@
   margin: auto;
   display: flex;
   justify-content: space-around;
+  input {
+  border-style: none;
+  padding: 5px 50px;
+  border-radius: 5px;
+  }
 }
 
 .overflow {
