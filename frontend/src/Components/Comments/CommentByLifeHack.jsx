@@ -49,15 +49,5 @@ export function CommentByLifeHack({ id, comments, setComments }) {
                 </div>
             ))}
         </div>
-
-        //         <div key={comment.id}>
-        //             <h3>{comment.text}</h3>
-        //             <div>{comment.points}</div>
-        //             <div>{comment.points}</div>
-        //             <div>{comment.registeredTime}</div>
-        //             <GetUserName id={comment.userId} />
-        //         </div>
-        //     ))}
-        // </div>
     );
 }

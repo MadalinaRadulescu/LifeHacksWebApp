@@ -49,7 +49,8 @@ export default function Navbar() {
     useEffect(() => {
         fetch("http://localhost:5260/category/all")
             .then((response) => response.json())
-            .then((data) => setCategoriesData(data));
+            .then((data) => setCategoriesData(data))
+            .catch((error)=>console.log(error));
     }, []);
 
     useOnClickOutside(outside, () => setIsDropDown(false));

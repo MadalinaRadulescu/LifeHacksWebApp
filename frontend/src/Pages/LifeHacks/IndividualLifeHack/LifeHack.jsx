@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { CommentByLifeHack } from "../../../Components/Comments/CommentByLifeHack";
 import styles from "./styles.module.sass";
 import Placeholder from "../../../Images/Placeholder.png";
-import information from "../../../Images/information.png";
 import { CarouselPage} from "../../../Components/Carousel/CarouselPage";
 import YouTube from 'react-youtube';
 import Vimeo from '@u-wave/react-vimeo'

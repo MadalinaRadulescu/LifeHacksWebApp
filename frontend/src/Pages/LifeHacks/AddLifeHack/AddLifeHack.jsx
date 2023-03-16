@@ -21,7 +21,7 @@ const AddLifeHack = () => {
     title: "",
     description: "",
     userId: user.userId,
-    categoriesId: [1],
+    categoriesId: [],
     image: [],
     link: "",
   });

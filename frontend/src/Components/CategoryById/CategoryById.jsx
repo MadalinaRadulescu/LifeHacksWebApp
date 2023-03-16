@@ -4,7 +4,7 @@ export function CategoryById({ id }) {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch(`https://localhost:44330/category/${id}`)
+        fetch(`http://localhost:5260/category/${id}`)
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => console.error(error));

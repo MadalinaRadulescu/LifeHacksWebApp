@@ -3,9 +3,10 @@ import Placeholder from "../../../Images/Placeholder.png";
 import information from "../../../Images/information.png";
 import styles from "./styles.module.sass";
 import {Link} from "react-router-dom";
+import { CarouselPage} from "../../../Components/Carousel/CarouselPage";
 
 export default function AllLifeHacks({categoryId}) {
-    console.log(categoryId)
+    // console.log(categoryId)
     const [lifeHacks, setLifeHacks] = useState(null);
     let url = (categoryId === undefined)? 'http://localhost:5260/lifeHack/newest' : `http://localhost:5260/lifeHack/category/${categoryId}`
     useEffect(() => {
