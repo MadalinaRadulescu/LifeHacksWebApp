@@ -4,15 +4,14 @@ import information from "../../Images/information.png";
 import React, { useEffect, useState } from "react";
 import { GetUserName } from "../Users/GetUserName";
 
-export function CommentByLifeHack({ id }) {
-    const [comments, setComments] = useState([]);
+export function CommentByLifeHack({ id, comments, setComments }) {
 
     useEffect(() => {
         fetch(`https://localhost:44330/comment/lifeHack/${id}`)
             .then((response) => response.json())
             .then((data) => setComments(data))
             .catch((error) => console.log(error));
-    }, [id]);
+    }, [id, comments]);
 
     if (!comments) {
         return <div>Loading data...</div>;

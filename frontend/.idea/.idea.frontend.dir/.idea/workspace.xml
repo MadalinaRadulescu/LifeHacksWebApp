@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="def21751-7776-47f5-b7a6-fc43e18d84b0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/Comments/styles.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Comments/styles.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Categories/Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Categories/Categories.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Comments/CommentByLifeHack.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Comments/CommentByLifeHack.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LifesaverHub/LifesaverHub/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/../LifesaverHub/LifesaverHub/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +43,7 @@
       <updated>1677825699304</updated>
       <workItem from="1677825702514" duration="3581000" />
       <workItem from="1678691723020" duration="3759000" />
+      <workItem from="1678966510053" duration="278000" />
     </task>
     <servers />
   </component>
