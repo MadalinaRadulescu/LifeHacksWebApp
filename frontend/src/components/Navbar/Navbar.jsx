@@ -1,4 +1,4 @@
-import                                                                                                                                                                                                                                                                  styles from "./styles.module.scss";
+import styles from "./styles.module.scss";
 import logo from "../../Images/LifeSaverHubLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
@@ -42,8 +42,7 @@ export default function Navbar() {
     useEffect(() => {
         fetch("https://localhost:44330/category/all")
             .then((response) => response.json())
-            .then((data) => setCategoriesData(data))
-            .catch((error) => console.log(error));
+            .then((data) => setCategoriesData(data));
     }, []);
 
     useOnClickOutside(outside, () => setIsDropDown(false));
@@ -111,9 +110,9 @@ export default function Navbar() {
             <div className={styles.dropdown}>
                 {isDropDown ? (
                     <ul>
-                        {categoriesData && categoriesData.map((item) => (
+                        {categoriesData.map((item) => (
                             <li key={item.id}>
-                                <Link to={`/${item.id}`}>{item.name}</Link>
+                                <Link to={`/${item.name}`}>{item.name}</Link>
                             </li>
                         ))}
                     </ul>
