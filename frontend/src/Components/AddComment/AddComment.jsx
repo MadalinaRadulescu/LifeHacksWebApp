@@ -13,7 +13,7 @@ export default function AddComment({lifeHackId, setComments, comments}) {
             text: comment,
             lifeHackId: lifeHackId
         }))
-        fetch('https://localhost:44330/comment/add', {
+        fetch('http://localhost:5260/comment/add', {
             method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({
                 userId: "0",
                 text: comment,

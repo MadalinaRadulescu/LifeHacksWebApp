@@ -6,36 +6,37 @@ import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAtom } from "jotai";
 import state, { searchFilter } from "../../Store";
 
-
 function LoggedIn({ addLifeHack, logOut, user }) {
-    return (
-        <>
-            <div className={styles.overflow}>
-                <li onClick={addLifeHack}>Add</li>
-            </div>
-            <div className={styles.overflow}>
-                <li onClick={logOut}>Log Out</li>
-            </div>
-            <div className={styles.overflow}>
-                <Link to={`/lifeHack/user/${user.userId}`}> Your Life Hacks </Link>
-            </div>
-            <div className={styles.message}>Welcome {user.userName}</div>
-        </>
-    );
+
+  console.log(user);
+  return (
+    <>
+      <div className={styles.overflow}>
+        <li onClick={addLifeHack}>Add</li>
+      </div>
+      <div className={styles.overflow}>
+        <li onClick={logOut}>Log Out</li>
+      </div>
+      <div className={styles.overflow}>
+        <Link to={`/lifeHack/user/${user.userId}`}> Your Life Hacks </Link>
+      </div>
+      <div className={styles.message}>Welcome {user.userName}</div>
+    </>
+  );
 }
 
 function LoggedOut({ register, logIn }) {
-    return (
-        <>
-            <div className={styles.overflow}>
-                <li onClick={register}>Register</li>
-            </div>
-            <div className={styles.overflow}>
-                <li onClick={logIn}>Log In</li>
-            </div>
-            <div className={styles.message}>You are not logged in </div>
-        </>
-    );
+  return (
+    <>
+      <div className={styles.overflow}>
+        <li onClick={register}>Register</li>
+      </div>
+      <div className={styles.overflow}>
+        <li onClick={logIn}>Log In</li>
+      </div>
+      <div className={styles.message}>You are not logged in </div>
+    </>
+  );
 }
 
 export default function Navbar() {
@@ -45,54 +46,54 @@ export default function Navbar() {
   const [searchResults, setResults] = useState([]);
   const outside = useRef(null);
   const [user] = useAtom(state.userData);
+  console.log(user.userId);
 
-    useEffect(() => {
-        fetch("http://localhost:5260/category/all")
-            .then((response) => response.json())
-            .then((data) => setCategoriesData(data))
-            .catch((error)=>console.log(error));
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:5260/category/all")
+      .then((response) => response.json())
+      .then((data) => {
+        setCategoriesData(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   useOnClickOutside(outside, () => setIsDropDown(false));
 
   function searchVal(event) {
     event.preventDefault();
-    setSearchValue(event.target.value)
+    setSearchValue(event.target.value);
   }
 
-  const handleDropdown = () => {
+  const handleDropdown = (e) => {
+    e.preventDefault();
     setIsDropDown(!isDropDown);
   };
 
-    let navigate = useNavigate();
-    const addLifeHack = () => {
-        let path = `/addLifeHack`;
-        navigate(path);
-    };
+  let navigate = useNavigate();
+  const addLifeHack = () => {
+    let path = `/addLifeHack`;
+    navigate(path);
+  };
 
-    const register = () => {
-        let path = `/Auth/register`;
-        navigate(path);
-    };
+  const register = () => {
+    let path = `/Auth/register`;
+    navigate(path);
+  };
 
-    const yourLifeHacks = (userId)=>{
-        let path = `/lifeHack/user/${userId}`;
-        navigate(path);
-    }
+  const yourLifeHacks = (userId) => {
+    let path = `/lifeHack/user/${userId}`;
+    navigate(path);
+  };
 
-    const logIn = () => {
-        let path = `/Auth/login`;
-        navigate(path);
-    };
+  const logIn = () => {
+    let path = `/Auth/login`;
+    navigate(path);
+  };
 
-    const logOut = () => {
-        let path = `/Auth/Logout`;
-        navigate(path);
-    };
-
-    // var user = localStorage.getItem("user");
-
-    // console.log(user.userId);
+  const logOut = () => {
+    let path = `/Auth/Logout`;
+    navigate(path);
+  };
 
   return (
     <>
@@ -105,7 +106,7 @@ export default function Navbar() {
         <div className={styles.overflow} ref={outside}>
           <li onClick={handleDropdown}>Categories</li>
         </div>
-        <div className={styles.overflow} ref={outside}>
+        <div className={styles.overflow}>
           <li>
             <Link to="/AboutUs">About Us</Link>
           </li>
@@ -120,23 +121,22 @@ export default function Navbar() {
           />
         </form>
         {user?.isSuccess ? (
-          <LoggedIn addLifeHack={addLifeHack} logOut={logOut} />
+          <LoggedIn addLifeHack={addLifeHack} logOut={logOut} user={user}  yourLifeHacks={yourLifeHacks}/>
         ) : (
           <LoggedOut register={register} logIn={logIn} />
         )}
       </ul>
-
-            <div className={styles.dropdown}>
-                {isDropDown ? (
-                    <ul>
-                        {categoriesData.map((item) => (
-                            <li key={item.id}>
-                                <Link to={`/${item.name}`}>{item.name}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                ) : null}
-            </div>
-        </>
-    );
+      <div className={styles.dropdown}>
+        {isDropDown ? (
+          <ul>
+            {categoriesData.map((item) => (
+              <li key={item.id}>
+                <Link to={`/${item.name}`}>{item.name}</Link>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </>
+  );
 }

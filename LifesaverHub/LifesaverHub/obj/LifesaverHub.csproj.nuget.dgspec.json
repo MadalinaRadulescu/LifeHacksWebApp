@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj": {}
+    "/Users/crispy/codeCool/Advanced/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj": {}
   },
   "projects": {
-    "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj": {
+    "/Users/crispy/codeCool/Advanced/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj",
+        "projectUniqueName": "/Users/crispy/codeCool/Advanced/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj",
         "projectName": "LifesaverHub",
-        "projectPath": "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj",
-        "packagesPath": "/Users/Madi/.nuget/packages/",
-        "outputPath": "/Users/Madi/Documents/codecool/Advanced/TW-1/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/obj/",
+        "projectPath": "/Users/crispy/codeCool/Advanced/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/LifesaverHub.csproj",
+        "packagesPath": "/Users/crispy/.nuget/packages/",
+        "outputPath": "/Users/crispy/codeCool/Advanced/el-proyecte-grande-sprint-1-csharp-MadalinaRadulescu/LifesaverHub/LifesaverHub/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/Madi/.nuget/NuGet/NuGet.Config"
+          "/Users/crispy/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
