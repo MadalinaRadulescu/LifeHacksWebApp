@@ -15,7 +15,7 @@ const AddLifeHack = () => {
   const [images, setImages] = useState([]);
   const [result, setResult] = useState(null);
   const [categoriesData, setCategoriesData] = useState(null);
-  console.log(user.userId)
+//   console.log(user.userId)
   const [lifeHack, setLifeHack] = useState({
     title: "",
     description: "",

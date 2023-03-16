@@ -7,7 +7,7 @@ import { useAtom } from "jotai";
 import state from "../../Store";
 
 
-function LoggedIn({ addLifeHack, logOut, user, yourLifeHacks }) {
+function LoggedIn({ addLifeHack, logOut, user }) {
     return (
         <>
             <div className={styles.overflow}>
@@ -17,9 +17,9 @@ function LoggedIn({ addLifeHack, logOut, user, yourLifeHacks }) {
                 <li onClick={logOut}>Log Out</li>
             </div>
             <div className={styles.overflow}>
-                <Link to={`/lifeHack/user/${user.userId}`}> Your Life Hacks</Link>
+                <Link to={`/lifeHack/user/${user.userId}`}> Your Life Hacks </Link>
             </div>
-            <div className={styles.message}>Welcome {user.userId}{user.userName}</div>
+            <div className={styles.message}>Welcome {user.userName}</div>
         </>
     );
 }

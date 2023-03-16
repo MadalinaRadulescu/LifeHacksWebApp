@@ -11,6 +11,7 @@ import Categories from "./Pages/Categories/Categories";
 import Logout from "./Pages/Logout/Logout";
 import Home from "./Pages/Home/Home"
 import YourLifeHacks from "./Pages/YourLifeHacks/YourLifeHacks";
+import Remove from "./Pages/RemoveLifeHack/RemoveLifeHack"
 
 const App = () => {
     return (
@@ -32,6 +33,7 @@ const App = () => {
                     <Route path="/Auth/register" element={<Register />} />
                     <Route path="/category" element={<Categories />} />
                     <Route path="/Auth/Logout" element={<Logout />} />
+                    <Route path="/lifeHack/remove/:lifeHackId" element={<Remove />} />
                 </Routes>
             </div>
             <br />

@@ -4,6 +4,7 @@ import information from "../../Images/information.png";
 import styles from "../LifeHacks/AllLifeHacks/styles.module.sass";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { CarouselPage } from "../../Components/Carousel/CarouselPage";
+import Remove from "../RemoveLifeHack/RemoveLifeHack"
 
 export default function YourLifeHacks() {
     const{userId}= useParams();
@@ -55,6 +56,7 @@ export default function YourLifeHacks() {
                 </>
               )}
             </div>
+            <Link to={`/lifeHack/remove/${lifeHack.id}`} className={styles.delete} > X </Link>
             <h5 className={styles.time1}>
               {new Date(lifeHack.registeredTime).toLocaleTimeString("en-US", {
                 hour12: false,
