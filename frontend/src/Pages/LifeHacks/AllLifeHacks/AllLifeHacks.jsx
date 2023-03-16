@@ -8,15 +8,20 @@ import { CarouselPage} from "../../../Components/Carousel/CarouselPage";
 export default function AllLifeHacks({categoryId}) {
     // console.log(categoryId)
     const [lifeHacks, setLifeHacks] = useState(null);
+    const [SearchFilter] = useAtom(searchFilter);
+    const [filteredLifeHacks, setFilteredLifeHacks] = useState([]);
     let url = (categoryId === undefined)? 'http://localhost:5260/lifeHack/newest' : `http://localhost:5260/lifeHack/category/${categoryId}`
     useEffect(() => {
-        fetch(url)
+        fetch("http://localhost:5260/lifeHack/newest")
             .then((response) => response.json())
-            .then((json) => setLifeHacks(json))
+            .then((json) => {
+                console.log(json);
+                setLifeHacks(json)
+            })
             .catch((error) => console.log(error));
-    }, [categoryId]);
+    }, []);
 
-    if (!lifeHacks) {
+    if (!lifeHacks || filteredLifeHacks.length === 0) {
         const placeHolder = (<div className={styles.card}>
                 <div className={styles.thumbnail}>
                     <img
@@ -51,7 +56,7 @@ export default function AllLifeHacks({categoryId}) {
 
   return (
     <>
-      {lifeHacks.map((lifeHack) => (
+      {fileteredLifeHacks.map((lifeHack) => (
         <div key={lifeHack.id} className={styles.card}>
           <div className={styles.thumbnail} >
             {lifeHack.image.length > 0 ? (

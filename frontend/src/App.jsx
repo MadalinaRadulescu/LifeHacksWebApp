@@ -12,6 +12,7 @@ import Logout from "./Pages/Logout/Logout";
 import Home from "./Pages/Home/Home"
 import YourLifeHacks from "./Pages/YourLifeHacks/YourLifeHacks";
 import Remove from "./Pages/RemoveLifeHack/RemoveLifeHack"
+import AboutUs from "./Pages/AboutUs/AboutUs";
 
 const App = () => {
     return (
@@ -34,6 +35,7 @@ const App = () => {
                     <Route path="/category" element={<Categories />} />
                     <Route path="/Auth/Logout" element={<Logout />} />
                     <Route path="/lifeHack/remove/:lifeHackId" element={<Remove />} />
+                    <Route path="/AboutUs" element={<AboutUs />} />
                 </Routes>
             </div>
             <br />
