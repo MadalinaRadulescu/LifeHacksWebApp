@@ -41,7 +41,7 @@ public class LifeHackController : Controller
     [HttpDelete("remove/{id}")]
     public async Task RemoveLifeHack(string id)
     {
-        var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+        // var userId = User.FindFirst(ClaimTypes.NameIdentifier);
         await _lifeHack.Remove(id);
     }
 

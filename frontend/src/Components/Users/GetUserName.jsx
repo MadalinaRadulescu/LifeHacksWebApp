@@ -4,7 +4,7 @@ export function GetUserName({ id }) {
     const [userName, setUserName] = useState(null);
 
     useEffect(() => {
-        fetch(`https://localhost:44330/userData/user/${id}`) // *** To Do *** => change from card holder to userName
+        fetch(`http://localhost:5260/userData/user/${id}`) // *** To Do *** => change from card holder to userName
             .then((response) => response.json())
             .then((data) => setUserName(data))
             .catch((error) => console.log(error));

@@ -1,43 +1,61 @@
-﻿import React, {useEffect, useRef, useState} from "react";
-import {Navigate} from 'react-router-dom';
+﻿import React, { useEffect, useRef, useState } from "react";
+import { Navigate } from "react-router-dom";
 import Resizer from "react-image-file-resizer";
 import styles from "./styles.module.sass";
 import close from "../../../Images/x.png";
 import addPhoto from "../../../Images/addPhoto.png";
+import { useAtom } from "jotai";
+import state from "../../../Store";
 import validator from "validator";
 
 const AddLifeHack = () => {
-    document.title = "Add Life Hack";
+  document.title = "Add Life Hack";
+  const [linkStatus, setLinkStatus] = useState(true);
+  const [user] = useAtom(state.userData);
+  const inputRef = useRef();
+  const imageInputRef = useRef(null);
+  const [images, setImages] = useState([]);
+  const [result, setResult] = useState(null);
+  const [categoriesData, setCategoriesData] = useState(null);
+  const [lifeHack, setLifeHack] = useState({
+    title: "",
+    description: "",
+    userId: user.userId,
+    categoriesId: [1],
+    image: [],
+    link: "",
+  });
 
-    const inputRef = useRef();
-    const imageInputRef = useRef(null);
-    const [images, setImages] = useState([]);
-    const [linkStatus, setLinkStatus] = useState(true);
-    const [result, setResult] = useState(null);
-    const [categoriesData, setCategoriesData] = useState(null);
-    const [lifeHack, setLifeHack] = useState({
-        title: '', description: '', userId: '0',         //*** To Do *** take id from connected user
-        categoriesId: [], image: [], link: ''
-    });
 
-    useEffect(() => {
-        fetch("https://localhost:44330/category/all")
-            .then((response) => response.json())
-            .then((data) => setCategoriesData(data))
-            .catch((error) => console.log(error));
+    
 
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:5260/category/all")
+      .then((response) => response.json())
+      .then((data) => setCategoriesData(data))
+      .catch((error) => console.log(error));
+  }, []);
 
-    const handleImageUpload = (event) => {
-        event.preventDefault();
-        const file = event.target.files[0];
-        Resizer.imageFileResizer(file, 530, 320, 'JPEG', 100, 0, (uri) => {
-            images.push(String(uri))
-            setLifeHack(prevState => ({
-                ...prevState, image: images
-            }));
-        }, 'base64');
-    };
+  const handleImageUpload = (event) => {
+    event.preventDefault();
+    const file = event.target.files[0];
+    Resizer.imageFileResizer(
+      file,
+      530,
+      320,
+      "JPEG",
+      100,
+      0,
+      (uri) => {
+        images.push(String(uri));
+        setLifeHack((prevState) => ({
+          ...prevState,
+          image: images,
+        }));
+      },
+      "base64"
+    );
+  };
 
     function handleCategoryUpload(categoryId) {
         if (lifeHack.categoriesId.includes(categoryId)) {
@@ -71,7 +89,7 @@ const AddLifeHack = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        fetch('https://localhost:44330/lifeHack/add', {
+        fetch('http://localhost:5260/lifeHack/add', {
             method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(lifeHack),
         })
             .then(response => response.json())
@@ -79,14 +97,16 @@ const AddLifeHack = () => {
             .catch(error => console.log(error));
     };
 
-    if (result) {
-        return (<Navigate replace to={"/lifeHack/" + result}/>)
-    }
+  if (result) {
+    return <Navigate replace to={"/lifeHack/" + result} />;
+  }
 
-    return (<div
-        style={{
-            justifyContent: "center", display: "flex"
-        }}
+  return (
+    <div
+      style={{
+        justifyContent: "center",
+        display: "flex",
+      }}
     >
         <form
             onSubmit={handleSubmit}

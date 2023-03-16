@@ -38,7 +38,6 @@ public class Dao<T> : IDao<T> where T : BaseEntity
     public async Task Remove(string id)
     {
         var element = Get(id);
-        
         switch (element)
         {
             case Category category:

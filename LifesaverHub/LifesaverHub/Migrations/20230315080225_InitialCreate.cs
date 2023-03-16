@@ -5,8 +5,6 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace LifesaverHub.Migrations
 {
     /// <inheritdoc />
@@ -61,7 +59,7 @@ namespace LifesaverHub.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()")
+                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -76,7 +74,7 @@ namespace LifesaverHub.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Text = table.Column<string>(type: "text", nullable: false),
                     LifeHackId = table.Column<long>(type: "bigint", nullable: false),
-                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
+                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Points = table.Column<long>(type: "bigint", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -96,7 +94,7 @@ namespace LifesaverHub.Migrations
                     Image = table.Column<List<string>>(type: "text[]", nullable: false),
                     Link = table.Column<string>(type: "text", nullable: false),
                     categoriesId = table.Column<List<long>>(type: "bigint[]", nullable: false),
-                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
+                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Points = table.Column<long>(type: "bigint", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -122,7 +120,7 @@ namespace LifesaverHub.Migrations
                     City = table.Column<string>(type: "text", nullable: false),
                     Country = table.Column<string>(type: "text", nullable: false),
                     ZipCode = table.Column<string>(type: "text", nullable: false),
-                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "NOW()"),
+                    RegisteredTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Points = table.Column<long>(type: "bigint", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -236,44 +234,6 @@ namespace LifesaverHub.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.InsertData(
-                table: "Categories",
-                columns: new[] { "Id", "Name" },
-                values: new object[,]
-                {
-                    { 1, "Food" },
-                    { 2, "Home" },
-                    { 3, "Tech" },
-                    { 4, "Funny" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Comments",
-                columns: new[] { "Id", "LifeHackId", "Points", "Text", "UserId" },
-                values: new object[,]
-                {
-                    { 1, 5L, 0L, "That actually save my cookies!", "0" },
-                    { 2, 4L, 5L, "Why should i want to do that???", "0" },
-                    { 3, 1L, -5L, "Boring", "1" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "LifeHacks",
-                columns: new[] { "Id", "Description", "Image", "Link", "Points", "Title", "UserId", "categoriesId" },
-                values: new object[,]
-                {
-                    { 1, "To easily remove the steam from the strawberries we recommend to use a straw as in image from bellow.", new List<string>(), "", 27L, "How to remove the steam from the strawberries?", "0", new List<long> { 1L } },
-                    { 2, "The best way to kip chips fresh after opening is by using any clipper, like the ones from hanger.", new List<string>(), "", 0L, "How to properly close a bag of chips?", "0", new List<long> { 1L } },
-                    { 3, "We’re sure you’re stocking up on sweet smelling candles to make your home extra cozy for the colder months. But, if your candles are burning too low to reach the wick, there’s no reason to go without your favorite scent. Instead of burning your fingers, light a piece of uncooked spaghetti. It’ll reach into those deep candles and burn long enough to light the candles on grandpa’s birthday cake!", new List<string>(), "", 12L, "Pasta Lighter", "0", new List<long> { 2L } },
-                    { 4, "Fastest way to do that is simply putting a hair elastic on a vacuum and slowly suck the hair in.", new List<string>(), "https://www.boredpanda.com/blog/wp-content/org_uploads/2013/01/life-hacks-36.gif", -43L, "Fastest way to catch the hair in the tail", "1", new List<long> { 4L } },
-                    { 5, "Sprinkle dried rice under your cupcake cases before baking. The rice absorbs any grease throughout baking meaning you get lovely dry cupcake bases and no greasy patches on your cases!", new List<string>(), "", 25L, "Useful tip for baking cupcakes", "1", new List<long> { 1L } }
-                });
-
-            migrationBuilder.InsertData(
-                table: "UsersData",
-                columns: new[] { "Id", "AddressLine1", "AddressLine2", "CardHolder", "CardNumber", "City", "Country", "Cvv", "ExpiryMonth", "ExpiryYear", "PhoneNumber", "Points", "UserId", "ZipCode" },
-                values: new object[] { 1, "123 Maple Street", "", "john doe", "1234567890123456", "Columbus", "Ohio", "123", 10, 25, "5555555555", 0L, "0", "1234" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
