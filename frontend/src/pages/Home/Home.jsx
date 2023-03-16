@@ -7,8 +7,9 @@ import {useParams} from "react-router-dom";
 
 const Home = () => {
     document.title = "Life Saver Hub";
-    const {categoryId} = useParams();
+
     const clickScroll = useRef(null);
+    const { categoryId } = useParams();
 
     const handleScroll = (ref) => {
         window.scrollTo({
@@ -41,7 +42,7 @@ const Home = () => {
             <div className={styles.color_fill} ref={clickScroll} />
 
             <div className={styles.test}>
-                <AllLifeHacks categoryId={categoryId}/>
+                <AllLifeHacks categoryId={categoryId} />
             </div>
         </div>
     );

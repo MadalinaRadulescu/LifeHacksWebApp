@@ -1,11 +1,10 @@
-import styles from "./styles.module.scss";
+import                                                                                                                                                                                                                                                                  styles from "./styles.module.scss";
 import logo from "../../Images/LifeSaverHubLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import useOnClickOutside from "../../Hooks/useOnClickOutside";
 import { useAtom } from "jotai";
 import state from "../../Store";
-import AllLifeHacks from "../../Pages/LifeHacks/AllLifeHacks/AllLifeHacks";
 
 function LoggedIn({ addLifeHack, logOut }) {
     return (
@@ -43,7 +42,8 @@ export default function Navbar() {
     useEffect(() => {
         fetch("https://localhost:44330/category/all")
             .then((response) => response.json())
-            .then((data) => setCategoriesData(data));
+            .then((data) => setCategoriesData(data))
+            .catch((error) => console.log(error));
     }, []);
 
     useOnClickOutside(outside, () => setIsDropDown(false));
@@ -95,13 +95,13 @@ export default function Navbar() {
                 {user?.isSuccess ? (
                     <LoggedIn addLifeHack={addLifeHack} logOut={logOut} />
                 ) : (
-                    <LoggedOut register={register} logIn={logIn} />
+                    <LoggedOut register={register} login={logIn} />
                 )}
                 <label>
                     <input
                         type="text"
                         name="name"
-                        placeholder={searchValue}
+                        value={searchValue}
                         onChange={searchVal}
                         className={styles.searchbar}
                     />
@@ -111,7 +111,7 @@ export default function Navbar() {
             <div className={styles.dropdown}>
                 {isDropDown ? (
                     <ul>
-                        {categoriesData.map((item) => (
+                        {categoriesData && categoriesData.map((item) => (
                             <li key={item.id}>
                                 <Link to={`/${item.id}`}>{item.name}</Link>
                             </li>
