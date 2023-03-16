@@ -37,19 +37,21 @@ public class Dao<T> : IDao<T> where T : BaseEntity
 
     public async Task Remove(string id)
     {
-        switch (this)
+        var element = Get(id);
+        
+        switch (element)
         {
-            case Category:
-                _context.Categories.Remove((Get(id) as Category)!);
+            case Category category:
+                _context.Categories.Remove(category);
                 break;
-            case Comment:
-                _context.Comments.Remove((Get(id) as Comment)!);
+            case Comment comment:
+                _context.Comments.Remove(comment);
                 break;
-            case LifeHack:
-                _context.LifeHacks.Remove((Get(id) as LifeHack)!);
+            case LifeHack lifeHack:
+                _context.LifeHacks.Remove(lifeHack);
                 break;
-            case UserData:
-                _context.UsersData.Remove((Get(id) as UserData)!);
+            case UserData userData:
+                _context.UsersData.Remove(userData);
                 break;
             default:
                 throw new NotSupportedException($"Type '{typeof(T)}' is not supported for Remove operation.");

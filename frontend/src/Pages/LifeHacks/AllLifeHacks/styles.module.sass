@@ -42,11 +42,13 @@ body
 .LHTitle
   word-wrap: break-word
   padding-top: 15px
-  font-size: 1.3rem
-  color: #4B4B4B
   text-align: left
-  max-height: 50px
+  max-height: 55px
   overflow: hidden
+  font-size: 1.5rem
+  background: -webkit-linear-gradient(#123C69, #AC3B61)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
 
 .separator
   margin-top: 10px
@@ -61,20 +63,23 @@ body
   word-wrap: break-word
   overflow: hidden
 
-.time1
+.time
   position: absolute
-  left: 30px
-  bottom: -120px
-  font-size: 6rem
-  background: -webkit-linear-gradient(#123C69, #AC3B61)
+  display: flex
+  flex-wrap: nowrap
+  left: 40px
+  bottom: 50px
+
+.time1
+  font-size: 2rem
+  padding-left: 290px
+  background: -webkit-linear-gradient(#eee, #333)
   -webkit-background-clip: text
   -webkit-text-fill-color: transparent
 
 .time2
-  position: absolute
-  left: 30px
-  bottom: -55px
-  font-size: 2rem
+  font-size: 1.5rem
+  padding-top: 20px
   background: -webkit-linear-gradient(#eee, #333)
   -webkit-background-clip: text
   -webkit-text-fill-color: transparent
